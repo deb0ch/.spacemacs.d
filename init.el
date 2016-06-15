@@ -36,6 +36,7 @@ values."
      git
      gtags
      markdown
+     multiple-cursors
      org
      python
      semantic
