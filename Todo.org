@@ -1,3 +1,10 @@
 
 * Todo
 - linum-off
+- Compilation buffer: treat ansi color sequences
+- enable smooth scrolling also in compilation buffer, Helm buffers and generally all buffers
+* Bug reports
+- git-time-machine: breaks when isearching buffer while in microstate. Cannot use Helm-M-x afterwards unless manually killing microstate's buffer.
+
+* Packages to try
+- calfw           (https://github.com/kiwanami/emacs-calfw)

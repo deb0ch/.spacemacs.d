@@ -39,6 +39,7 @@ values."
      multiple-cursors
      org
      python
+     ranger
      semantic
      (shell :variables
             ;; shell-default-height 30
@@ -299,7 +300,9 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+
+  ;; Line number format
+  (setq linum-format "%3d \u2502"))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -312,20 +315,19 @@ you should place your code here."
   ;; Remplace le texte selectionne si on tape
   (delete-selection-mode t)
 
-  ;; Line number format
-  (setq linum-format "%3d \u2502")
-
   ;; Do not highlight current line
   (global-hl-line-mode -1)
 
-  (global-unset-key (kbd "C-z"))
+;  (global-unset-key (kbd "C-z"))
 
   ;;  (blink-cursor-mode 1)
 
   ;; gnu k&r bsd whitesmith stroustrup ellemtel linux python java awk user
   (setq c-default-style "linux")
-
+  (setq-default indent-tabs-mode t)
+  (setq-default tab-width 8) ; Assuming you want your tabs to be four spaces wide
   (setq c-basic-offset 8)
+;  (defvaralias 'c-basic-offset 'tab-width)
 
   (global-set-key (kbd "C-q") 'kill-this-buffer)
 
@@ -333,6 +335,17 @@ you should place your code here."
   (global-set-key [M-right] 'windmove-right)
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
+
+  ;; https://github.com/syl20bnr/spacemacs/issues/6159#issuecomment-225286158
+  (defun spacemacs/useful-buffer-p (buffer)
+    (not (spacemacs/useless-buffer-p buffer)))
+
+  (let ((buf-pred-entry (assq 'buffer-predicate default-frame-alist)))
+    (if buf-pred-entry
+        ;; `buffer-predicate' entry exists, modify it
+        (setcdr buf-pred-entry #'spacemacs/useful-buffer-p)
+      ;; `buffer-predicate' entry doesn't exist, create it
+      (push '(buffer-predicate . spacemacs/useful-buffer-p) default-frame-alist)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
