@@ -45,7 +45,6 @@ values."
      colors
      common-lisp
      emacs-lisp
-     ;; eyebrowse
      git
      gtags
      helm
@@ -53,12 +52,11 @@ values."
      multiple-cursors
      org
      python
-     ;; ranger
+     ranger
      semantic
      (shell :variables
             shell-default-height 50
             shell-default-position 'bottom)
-     ;; spell-checking
      shell-scripts
      spacemacs-layouts
      syntax-checking
@@ -385,16 +383,18 @@ you should place your code here."
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
 
+  ;; Avoid useless buffers
   ;; https://github.com/syl20bnr/spacemacs/issues/6159#issuecomment-225286158
   (defun spacemacs/useful-buffer-p (buffer)
     (not (spacemacs/useless-buffer-p buffer)))
-
   (let ((buf-pred-entry (assq 'buffer-predicate default-frame-alist)))
     (if buf-pred-entry
         ;; `buffer-predicate' entry exists, modify it
         (setcdr buf-pred-entry #'spacemacs/useful-buffer-p)
       ;; `buffer-predicate' entry doesn't exist, create it
       (push '(buffer-predicate . spacemacs/useful-buffer-p) default-frame-alist)))
+
+  ;; Terminal better support
   (setq-default term-suppress-hard-newline t)
 )
 
