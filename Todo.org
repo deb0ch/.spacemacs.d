@@ -1,10 +1,38 @@
 
-* Todo
+* To do
+- activate nyan-mode
+
+* To import
 - linum-off
+- dtrt-indent
+- mwim
+- C-d duplicate-line-or-region
+
+* Hacks
 - Compilation buffer: treat ansi color sequences
-- enable smooth scrolling also in compilation buffer, Helm buffers and generally all buffers
+- Helm: make Helm not take the entire screen when on the right
+- Monokai: better which-key aspect
+- Monokai: better mode-line
+- with-editor (or other): when in internal terminal, make command ne open files in current instance.
+
 * Bug reports
 - git-time-machine: breaks when isearching buffer while in microstate. Cannot use Helm-M-x afterwards unless manually killing microstate's buffer.
 
 * Packages to try
 - calfw           (https://github.com/kiwanami/emacs-calfw)
+- compile-bookmarks
+- guess-style
+- fuzzy-format
+
+* keybindings
+- magit-stash
+- org-global-cycle
+- Helm-projectile useful function (to bind on M-o):
+	(defun sr-open-file()
+	       "Open file using projectile+Helm or ido"
+	       (interactive)
+	       (if (projectile-project-p)
+	       	   (helm-projectile)
+		   (helm-for-files)
+	       )
+	)

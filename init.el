@@ -51,6 +51,7 @@ values."
      markdown
      multiple-cursors
      org
+     pdf-tools
      python
      ranger
      semantic
@@ -383,6 +384,10 @@ you should place your code here."
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
 
+  ;; Define useless / useful buffers
+  (setq spacemacs-useful-buffers-regexp nil)
+  (setq spacemacs-useful-buffers-regexp
+	'("\\*spacemacs\\*" "\\*magit*"))
   ;; Avoid useless buffers
   ;; https://github.com/syl20bnr/spacemacs/issues/6159#issuecomment-225286158
   (defun spacemacs/useful-buffer-p (buffer)
@@ -396,6 +401,9 @@ you should place your code here."
 
   ;; Terminal better support
   (setq-default term-suppress-hard-newline t)
+
+  ;; for paradox-list-p
+  (setq paradox-github-token 'bfb4f1a1a4f6136e1403d92633f21193361c27a3)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
