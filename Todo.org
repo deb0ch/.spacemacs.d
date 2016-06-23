@@ -1,33 +1,61 @@
 
 * To do
-- activate nyan-mode
+  - set compilation db for parrot build
+  - pdf-view: display page number in spaceline
+  - Helm-M-x: add show-doc action
+  - which-key: help in popup
 
-* To import
-- linum-off
-- dtrt-indent
-- mwim
-- C-d duplicate-line-or-region
 
-* Hacks
-- Compilation buffer: treat ansi color sequences
-- Helm: make Helm not take the entire screen when on the right
-- Monokai: better which-key aspect
-- Monokai: better mode-line
-- with-editor (or other): when in internal terminal, make command ne open files in current instance.
+* Daemon mode
+  - fix git gutter in daemon mode
+  - set environment for daemon mode:
+    - launch daemon at startup
+    - set EDITOR and other variables in .zshrc
+    - set relevant aliases in .zshrc
 
-* Bug reports
-- git-time-machine: breaks when isearching buffer while in microstate. Cannot use Helm-M-x afterwards unless manually killing microstate's buffer.
 
-* Packages to try
-- calfw           (https://github.com/kiwanami/emacs-calfw)
-- compile-bookmarks
-- guess-style
-- fuzzy-format
+* Polish
+  - semantic polluting echo area - echo the same message only once to not overwrite other echo messages.
+  - Helm: make Helm not take the entire screen when on the right
+  - fix git gutter in daemon mode
+  - source-code-pro: try automatic install at startup
+  - make spacemacs startpage project links open projets with ranger (or Helm ?)
+  - PR for C-d duplicate-line-or-region
+
+
+* Import from my config
+  - tty-format: display colors in compilation buffers
+  - linum-off
+  - dtrt-indent
+
+
+* Configs
+  - keep cursor 2 lines away fro end / beginning of window
+  - turn on org-indent
+
+
+* Misc
+  - Monokai: better which-key aspect
+  - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
+  - with-editor (or other): when in internal terminal, make command ne open files in current instance.
+  - smartparens: put braces arround region right
+  - Helm-buffers: preview buffers
+  - Helm-files: preview files
+** Terminal emacs
+    - fix modeline (use font-info in emacs25): (http://git.savannah.gnu.org/cgit/emacs.git/tree/etc/NEWS?h=emacs-25#n1744)
+** Packages to try
+    - calfw           (https://github.com/kiwanami/emacs-calfw)
+    - compile-bookmarks
+    - guess-style
+    - fuzzy-format
+
 
 * keybindings
-- magit-stash
-- org-global-cycle
-- Helm-projectile useful function (to bind on M-o):
+  - avy-goto-char
+  - magit-stash-popup
+  - magit-branch-popup
+  - magit-reflog
+  - Helm-projectile useful function (to bind to M-o):
 	(defun sr-open-file()
 	       "Open file using projectile+Helm or ido"
 	       (interactive)
@@ -36,3 +64,8 @@
 		   (helm-for-files)
 	       )
 	)
+
+
+* Issue reports
+  - terminal: variable width unicode chars
+  - Ranger: does not clean dired buffers (layer variables do not work)
