@@ -42,9 +42,11 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     better-defaults
+     (better-defaults :variables
+		      better-defaults-move-to-beginning-of-code-first nil)
      c-c++
-     colors
+     (colors :variables
+	     colors-enable-nyan-cat-progress-bar nil)
      common-lisp
      emacs-lisp
      git
