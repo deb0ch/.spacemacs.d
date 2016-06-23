@@ -17,7 +17,6 @@
 (defun multiple-cursors/init-multiple-cursors ()
   (use-package multiple-cursors
     :defer t
-;;    :config
     ))
 
 ;;; packages.el ends here
