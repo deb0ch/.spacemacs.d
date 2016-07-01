@@ -17,6 +17,7 @@
 (defun multiple-cursors/init-multiple-cursors ()
   (use-package multiple-cursors
     :defer t
-    ))
+    :commands (mc/cycle-forward
+	       mc/cycle-backward)))
 
 ;;; packages.el ends here
