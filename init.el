@@ -77,6 +77,7 @@ values."
 
    ;; A list of packages that will not be install and loaded.
    dotspacemacs-excluded-packages '()
+
    ;; Defines the behaviour of Spacemacs when downloading packages.
    ;; Possible values are `used', `used-but-keep-unused' and `all'. `used' will
    ;; download only explicitly used packages and remove any unused packages as
@@ -84,7 +85,7 @@ values."
    ;; used packages but won't delete them if they become unused. `all' will
    ;; download all the packages regardless if they are used or not and packages
    ;; won't be deleted by Spacemacs. (default is `used')
-   dotspacemacs-download-packages 'used))
+   dotspacemacs-download-packages 'all))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -128,7 +129,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'random
+   dotspacemacs-startup-banner 'random*
 
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects' `agenda' `todos'.
@@ -410,6 +411,8 @@ you should place your code here."
 
   ;; for paradox-list-p
   (setq paradox-github-token 'bfb4f1a1a4f6136e1403d92633f21193361c27a3)
+
+  (setq compilation-scroll-output t)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
