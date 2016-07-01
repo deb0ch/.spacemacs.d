@@ -1,56 +1,78 @@
 
 * To do
+  - Fix multiple-cursors autoloading !!!
+** Completion
   - set compilation db for parrot build
-  - pdf-view: display page number in spaceline
-  - Helm-M-x: add show-doc action
-  - which-key: help in popup
-
-
-* Daemon mode
+*** Explore
+  - rtags
+  - ycmd
+  - irony
+  - completion layer
+  - c/c++ layer
+  - compile_commands.json
+*** Compilation db out-of-the-box
+  - Eclipse style header search
+  - Hook compilation-mode
+** Import from my config
+  - tty-format: display colors in log files
+  - linum-off
+  - dtrt-indent
+** Daemon mode
   - fix git gutter in daemon mode
-  - set environment for daemon mode:
-    - launch daemon at startup
-    - set EDITOR and other variables in .zshrc
-    - set relevant aliases in .zshrc
+*** set environment
+  - launch daemon at startup
+  - set EDITOR and other variables in .zshrc
+  - set relevant aliases in .zshrc
+
+
+* Coding style
+  - Create something simple to ease coding style settings:
+    - tab-width
+    - c-basic-offset
 
 
 * Polish
-  - semantic polluting echo area - echo the same message only once to not overwrite other echo messages.
-  - Helm: make Helm not take the entire screen when on the right
-  - fix git gutter in daemon mode
-  - source-code-pro: try automatic install at startup
+  - ansi colors in compilation buffers
+  - avy-char: be case-sensitive
+  - isearch / Helm: center window on search result
+  - magit: git blame color ids per commit
   - make spacemacs startpage project links open projets with ranger (or Helm ?)
-  - PR for C-d duplicate-line-or-region
-
-
-* Import from my config
-  - tty-format: display colors in compilation buffers
-  - linum-off
-  - dtrt-indent
-
-
-* Configs
-  - keep cursor 2 lines away fro end / beginning of window
-  - turn on org-indent
-
-
-* Misc
-  - Monokai: better which-key aspect
-  - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
-  - with-editor (or other): when in internal terminal, make command ne open files in current instance.
+  - multiple-cursors: RET should not leave mode
+  - multiple-cursors: add special actions transient/micro state
+  - semantic: stop polluting echo area
   - smartparens: put braces arround region right
-  - Helm-buffers: preview buffers
-  - Helm-files: preview files
+  - startpage: open links with ranger (or Helm ?)
+  - which-key: popup help
+  - with-editor (or other): when in internal terminal, make command `ne` open files in current instance.
+** Helm
+  - Helm: do not take the entire screen when on the right
+  - Helm-swoop: unselect region
+  - Helm-swoop: appear where stated by the relevant .spacemacs variable
+  - Helm: preview (~C-c C-f~ follow mode to set by default)
+  - Helm-M-x: add show-doc action
+** term, ansi-term, multi-term
+  - clean up `SPC '` term buffer after exiting with `C-d`
+  - fix `C-arrow` moves
+  - fix `M-backspace`
+  - fix zsh menucomplete covered by modeline
+  - fix char-mode / line-mode keybindings
 ** Terminal emacs
-    - fix modeline (use font-info in emacs25): (http://git.savannah.gnu.org/cgit/emacs.git/tree/etc/NEWS?h=emacs-25#n1744)
-** Packages to try
-    - calfw           (https://github.com/kiwanami/emacs-calfw)
-    - compile-bookmarks
-    - guess-style
-    - fuzzy-format
+  - fix modeline (use font-info in emacs25): (http://git.savannah.gnu.org/cgit/emacs.git/tree/etc/NEWS?h=emacs-25#n1744)
+** Spaceline
+  - lines count instead of buffer size
+  - always show layout name
+  - always show compilation status
+  - always show minor modes
+  - always show vcs info
+** Configs
+  - scroll: keep cursor 2 lines away from end / beginning of window
+  - keep cursor 2 lines away from end / beginning of window
+  - compile.el.gz:1480: compilation-scroll-output: set scroll-on-output to true and do not stop at first error (or do not count warnings as errors)
 
 
 * keybindings
+  - org-mode ~M-<arrows>~ to navigate windows
+  - helm-projectile-ag to ~SPC p s~
   - avy-goto-char
   - magit-stash-popup
   - magit-branch-popup
@@ -66,6 +88,23 @@
 	)
 
 
-* Issue reports
+* Contribute
+** Pull request ideas
+  - source-code-pro: automatic install at startup
+  - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
+** Ongoing pull requests
+  - pdfview-page-numbers
+  - duplicate-line-or-region
+** Issue reports
   - terminal: variable width unicode chars
   - Ranger: does not clean dired buffers (layer variables do not work)
+  - Multiple cursors: insert numbers breaks cursors (Helm-related ?)
+  - Multiple cursors: missing autoloads
+
+
+* Misc
+** Packages to try
+  - calfw           (https://github.com/kiwanami/emacs-calfw)
+  - compile-bookmarks
+  - guess-style
+  - fuzzy-format
