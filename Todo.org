@@ -1,7 +1,6 @@
 
-* To do
-  - Fix multiple-cursors autoloading !!!
-** Completion
+* My spacemacs
+** completion
   - set compilation db for parrot build
 *** Explore
   - rtags
@@ -10,74 +9,28 @@
   - completion layer
   - c/c++ layer
   - compile_commands.json
-*** Compilation db out-of-the-box
-  - Eclipse style header search
-  - Hook compilation-mode
-** Import from my config
+** configs
+  - scroll: keep cursor 2 lines away from window ends
+** daemon mode
+  - fix git gutter in daemon mode
+  - with-editor (or other): when in internal terminal, make command `ne` open files in current instance.
+*** set environment
+  - launch daemon at startup (integrate to systemd ?)
+  - set EDITOR and other variables in .zshrc
+  - set relevant aliases in .zshrc
+** legacy
   - tty-format: display colors in log files
   - linum-off
   - dtrt-indent
-** Daemon mode
-  - fix git gutter in daemon mode
-*** set environment
-  - launch daemon at startup
-  - set EDITOR and other variables in .zshrc
-  - set relevant aliases in .zshrc
-
-
-* Coding style
-  - Create something simple to ease coding style settings:
-    - tab-width
-    - c-basic-offset
-
-
-* Polish
-  - ansi colors in compilation buffers
-  - avy-char: be case-sensitive
-  - isearch / Helm: center window on search result
-  - magit: git blame color ids per commit
-  - make spacemacs startpage project links open projets with ranger (or Helm ?)
-  - multiple-cursors: RET should not leave mode
-  - multiple-cursors: add special actions transient/micro state
-  - semantic: stop polluting echo area
-  - smartparens: put braces arround region right
-  - startpage: open links with ranger (or Helm ?)
-  - which-key: popup help
-  - with-editor (or other): when in internal terminal, make command `ne` open files in current instance.
-** Helm
-  - Helm: do not take the entire screen when on the right
-  - Helm-swoop: unselect region
-  - Helm-swoop: appear where stated by the relevant .spacemacs variable
-  - Helm: preview (~C-c C-f~ follow mode to set by default)
-  - Helm-M-x: add show-doc action
-** term, ansi-term, multi-term
-  - clean up `SPC '` term buffer after exiting with `C-d`
-  - fix `C-arrow` moves
-  - fix `M-backspace`
-  - fix zsh menucomplete covered by modeline
-  - fix char-mode / line-mode keybindings
-** Terminal emacs
-  - fix modeline (use font-info in emacs25): (http://git.savannah.gnu.org/cgit/emacs.git/tree/etc/NEWS?h=emacs-25#n1744)
-** Spaceline
-  - lines count instead of buffer size
-  - always show layout name
-  - always show compilation status
-  - always show minor modes
-  - always show vcs info
-** Configs
-  - scroll: keep cursor 2 lines away from end / beginning of window
-  - keep cursor 2 lines away from end / beginning of window
-  - compile.el.gz:1480: compilation-scroll-output: set scroll-on-output to true and do not stop at first error (or do not count warnings as errors)
-
-
-* keybindings
+** keybindings
   - org-mode ~M-<arrows>~ to navigate windows
   - helm-projectile-ag to ~SPC p s~
   - avy-goto-char
   - magit-stash-popup
   - magit-branch-popup
   - magit-reflog
-  - Helm-projectile useful function (to bind to M-o):
+  - Helm-projectile: bind to M-o:
+#+BEGIN_SRC lisp
 	(defun sr-open-file()
 	       "Open file using projectile+Helm or ido"
 	       (interactive)
@@ -86,15 +39,23 @@
 		   (helm-for-files)
 	       )
 	)
+#+END_SRC
 
 
 * Contribute
 ** Pull request ideas
   - source-code-pro: automatic install at startup
   - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
-** Ongoing pull requests
+  - fix typo COMMUNITY.org
+** PRs in progress
+  - center home banner
+** Ongoing PRs
   - pdfview-page-numbers
-  - duplicate-line-or-region
+  - duplicate-line-or-region:
+    - move out of better-defaults
+  - compilation colors:
+    - move out of better-defaults
+    - use `let` instead of `setq`
 ** Issue reports
   - terminal: variable width unicode chars
   - Ranger: does not clean dired buffers (layer variables do not work)
@@ -102,7 +63,64 @@
   - Multiple cursors: missing autoloads
 
 
+* Packages
+** avy-char
+  - case-sensitivity
+** compilation
+  - ansi color sequences
+  - hook compilation db build
+*** Compilation db out-of-the-box
+  - Eclipse style header search
+  - Hook compilation-mode
+** helm
+  - do not take the entire screen when on the right
+  - center window on search result
+  - preview (~C-c C-f~ follow mode to set by default)
+  - Helm-M-x: add show-doc action
+  - Helm-swoop: unselect region before moving
+  - Helm-swoop: appear where stated by the relevant .spacemacs variable
+** isearch
+  - center window on search result
+** magit
+  - git blame color ids per commit
+** multiple cursors
+  - multiple-cursors: RET should not leave mode
+  - multiple-cursors: add special actions transient/micro state
+** ranger
+  - major mode syntax coloring in preview buffer
+** semantic
+  - stop polluting echo area
+** smartparens
+  - put braces arround region right
+** spaceline
+  - lines count instead of buffer size
+  - always show layout name
+  - always show compilation status
+  - always show minor modes
+  - always show vcs info
+** spacemacs
+  - open homepage links with ranger / helm
+** term, ansi-term, multi-term
+  - clean up `SPC '` term buffer after exiting with `C-d`
+  - fix `C-arrow` moves
+  - fix `M-backspace`
+  - fix zsh menucomplete covered by modeline
+  - fix char-mode / line-mode keybindings
+** which-key
+  - popup help
+
+
+
+* Coding style
+** Simply set:
+  - tab-width
+  - c-basic-offset
+** flycheck kernel format-patch integration ?
+
+
 * Misc
+** Terminal emacs
+  - fix modeline (use font-info in emacs25): (http://git.savannah.gnu.org/cgit/emacs.git/tree/etc/NEWS?h=emacs-25#n1744)
 ** Packages to try
   - calfw           (https://github.com/kiwanami/emacs-calfw)
   - compile-bookmarks
