@@ -73,7 +73,10 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '((spaceline :location (recipe
+							    :fetcher github
+							    :repo "deb0ch/spaceline"
+							    :branch "PR/pdfview-page-numbers")))
 
    ;; A list of packages that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -121,7 +124,7 @@ values."
    dotspacemacs-editing-style 'emacs
 
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
-   dotspacemacs-verbose-loading t
+   dotspacemacs-verbose-loading nil
 
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
@@ -130,16 +133,15 @@ values."
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
    dotspacemacs-startup-banner 'random*
-
-   ;; List of items to show in the startup buffer. If nil it is disabled.
-   ;; Possible values are: `recents' `bookmarks' `projects' `agenda' `todos'.
-   ;; (default '(recents projects))
-   dotspacemacs-startup-lists '(recents projects agenda todos)
-
-   ;; Number of recent files to show in the startup buffer. Ignored if
-   ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
-   dotspacemacs-startup-recent-list-size 5
-
+   ;; List of items to show in startup buffer or an association list of of
+   ;; the form `(list-type . list-size)`. If nil it is disabled.
+   ;; Possible values for list-type are:
+   ;; `recents' `bookmarks' `projects' `agenda' `todos'."
+   dotspacemacs-startup-lists '((recents . 10)
+                                (projects . 5)
+                                (bookmarks . 5)
+                                (agenda . 5)
+                                (todos . 5))
    ;; Default major mode of the scratch buffer (default `text-mode')
    dotspacemacs-scratch-mode 'lisp-interaction-mode
 
@@ -188,27 +190,21 @@ values."
    ;; In the terminal, these pairs are generally indistinguishable, so this only
    ;; works in the GUI. (default nil)
    dotspacemacs-distinguish-gui-tab nil
+
    ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
    dotspacemacs-remap-Y-to-y$ nil
+
    ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
    ;; there. (default t)
    dotspacemacs-retain-visual-state-on-shift t
+
    ;; If non-nil, J and K move lines up and down when in visual mode.
    ;; (default nil)
    dotspacemacs-visual-line-move-text nil
+
    ;; If non nil, inverse the meaning of `g' in `:substitute' Evil ex-command.
    ;; (default nil)
    dotspacemacs-ex-substitute-global nil
-   ;; ;; (Not implemented) dotspacemacs-distinguish-gui-ret nil
-
-   ;; ;; The command key used for Evil commands (ex-commands) and
-   ;; ;; Emacs commands (M-x).
-   ;; ;; By default the command key is `:' so ex-commands are executed like in Vim
-   ;; ;; with `:' and Emacs commands are executed with `<leader> :'.
-   ;; dotspacemacs-command-key ":"
-
-   ;; ;; If non nil `Y' is remapped to `y$'. (default t)
-   ;; dotspacemacs-remap-Y-to-y$ t
 
    ;; Name of the default layout (default "Default")
    dotspacemacs-default-layout-name "Default"
@@ -384,6 +380,7 @@ you should place your code here."
   (setq c-basic-offset 8)
 ;  (defvaralias 'c-basic-offset 'tab-width)
 
+  (global-set-key (kbd "C-d") 'spacemacs/duplicate-line-or-region)
   (global-set-key (kbd "C-q") 'kill-this-buffer)
 
   (global-set-key [M-left] 'windmove-left)
@@ -413,6 +410,8 @@ you should place your code here."
   (setq paradox-github-token 'bfb4f1a1a4f6136e1403d92633f21193361c27a3)
 
   (setq compilation-scroll-output t)
+
+  (put 'magit-clean 'disabled nil)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
