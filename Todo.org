@@ -45,17 +45,16 @@
 * Contribute
 ** Pull request ideas
   - source-code-pro: automatic install at startup
+  - 'q' for quiting in all transient states
+** PRs in progress
   - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
   - fix typo COMMUNITY.org
-** PRs in progress
-  - center home banner
 ** Ongoing PRs
-  - pdfview-page-numbers
+  - center home banner
   - duplicate-line-or-region:
     - move out of better-defaults
-  - compilation colors:
-    - move out of better-defaults
-    - use `let` instead of `setq`
+  - compilation colors
+  - pdfview-page-numbers
 ** Issue reports
   - terminal: variable width unicode chars
   - Ranger: does not clean dired buffers (layer variables do not work)
@@ -67,7 +66,8 @@
 ** avy-char
   - case-sensitivity
 ** compilation
-  - ansi color sequences
+  - fix: sometimes files don't open on click
+  - make compilation buffer appear in oposite split
   - hook compilation db build
 *** Compilation db out-of-the-box
   - Eclipse style header search
@@ -76,6 +76,7 @@
   - do not take the entire screen when on the right
   - center window on search result
   - preview (~C-c C-f~ follow mode to set by default)
+  - Helm-ag: colorize output as it comes (instead of when finished)
   - Helm-M-x: add show-doc action
   - Helm-swoop: unselect region before moving
   - Helm-swoop: appear where stated by the relevant .spacemacs variable
@@ -115,6 +116,7 @@
 ** Simply set:
   - tab-width
   - c-basic-offset
+  - Cf. Misc/Packages to try/editor-config
 ** flycheck kernel format-patch integration ?
 
 
@@ -126,3 +128,4 @@
   - compile-bookmarks
   - guess-style
   - fuzzy-format
+  - editor-config (https://github.com/editorconfig/editorconfig-emacs)
