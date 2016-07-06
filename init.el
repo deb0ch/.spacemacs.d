@@ -412,6 +412,8 @@ you should place your code here."
   (setq compilation-scroll-output t)
 
   (put 'magit-clean 'disabled nil)
+
+  (setq expand-region-fast-keys-enabled nil)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
