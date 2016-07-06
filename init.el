@@ -137,8 +137,8 @@ values."
    ;; the form `(list-type . list-size)`. If nil it is disabled.
    ;; Possible values for list-type are:
    ;; `recents' `bookmarks' `projects' `agenda' `todos'."
-   dotspacemacs-startup-lists '((recents . 10)
-                                (projects . 5)
+   dotspacemacs-startup-lists '((recents . 15)
+                                (projects . 10)
                                 (bookmarks . 5)
                                 (agenda . 5)
                                 (todos . 5))
