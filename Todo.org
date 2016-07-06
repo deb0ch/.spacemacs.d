@@ -1,14 +1,17 @@
 
 * My spacemacs
 ** completion
-  - set compilation db for parrot build
 *** Explore
+**** packages
   - rtags
   - ycmd
   - irony
+**** layers
   - completion layer
   - c/c++ layer
-  - compile_commands.json
+**** header finders
+  - Bear
+  - https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.py
 ** configs
   - scroll: keep cursor 2 lines away from window ends
 ** daemon mode

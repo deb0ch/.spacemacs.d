@@ -1,0 +1,41 @@
+
+* Code completion, jumping and checking: code-aware tools
+
+** Backends
+*** rtags
+  - libclang
+  - definition jumping
+  - references jumping
+*** ycm
+  - libclang
+  - alledgedly faster than RTags
+  - smart sorting
+  - fuzzy matching
+  - definition jumping (backend)
+  - references jumping (backend)
+  - flycheck backend
+  - display type info
+  - view doc
+  - auto correction
+  - filepath completion (when typing "./")
+*** irony
+  - libclang
+*** Semantic / CEDET
+  - elisp code parser
+*** company-clang
+  - libclang
+
+** Autocompletion frontends
+  - company
+  - auto-complete
+  - emacs-ycmd
+
+** Build recorders
+  - Bear
+  - https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.py
+
+** Spacemacs layers
+*** completion layer
+*** c/c++ layer
+  - ycmd not installed
+*** syntax-checking
