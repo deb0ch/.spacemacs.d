@@ -36,6 +36,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     javascript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -44,7 +45,8 @@ values."
      (auto-completion :variables
 		      :disabled-for markdown org erc)
      (better-defaults :variables
-		      better-defaults-move-to-beginning-of-code-first nil)
+		      better-defaults-move-to-beginning-of-code-first nil
+		      better-defaults-move-to-end-of-code-first t)
      c-c++
      (colors :variables
 	     colors-enable-nyan-cat-progress-bar nil)
@@ -57,7 +59,7 @@ values."
      multiple-cursors
      org
      pdf-tools
-     python
+;     python
      ranger
      semantic
      (shell :variables
@@ -67,6 +69,7 @@ values."
      spacemacs-layouts
      syntax-checking
      version-control
+     ycmd
      )
 
    ;; List of additional packages that will be installed without being
@@ -74,12 +77,12 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '((spaceline :location (recipe
-							    :fetcher github
-							    :repo "deb0ch/spaceline"
-							    :branch "PR/pdfview-page-numbers")))
+                                                            :fetcher github
+                                                            :repo "deb0ch/spaceline"
+                                                            :branch "PR/pdfview-page-numbers")))
 
    ;; A list of packages that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(evil-unimpaired)
 
    ;; Defines the behaviour of Spacemacs when downloading packages.
    ;; Possible values are `used', `used-but-keep-unused' and `all'. `used' will
@@ -350,6 +353,10 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq ycmd-server-command
+	'("python" "/home/tdebeauchene/.emacs.d/private/YouCompleteMe/third_party/ycmd/ycmd"))
+  (setq ycmd-extra-conf-whitelist '("/home/tdebeauchene/ParrotSrc/kimolos/workspace/*"))
+  (setq ycmd-force-semantic-completion t)
 )
 
 (defun dotspacemacs/user-config ()
@@ -414,6 +421,7 @@ you should place your code here."
   (put 'magit-clean 'disabled nil)
 
   (setq expand-region-fast-keys-enabled nil)
+
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
