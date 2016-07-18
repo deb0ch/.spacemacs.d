@@ -77,12 +77,12 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '((spaceline :location (recipe
-                                                            :fetcher github
-                                                            :repo "deb0ch/spaceline"
-                                                            :branch "PR/pdfview-page-numbers")))
+   							    :fetcher github
+   							    :repo "deb0ch/spaceline"
+   							    :branch "PR/pdfview-page-numbers")))
 
    ;; A list of packages that will not be install and loaded.
-   dotspacemacs-excluded-packages '(evil-unimpaired)
+   dotspacemacs-excluded-packages '(evil-unimpaired yasnippet)
 
    ;; Defines the behaviour of Spacemacs when downloading packages.
    ;; Possible values are `used', `used-but-keep-unused' and `all'. `used' will
@@ -203,7 +203,7 @@ values."
 
    ;; If non-nil, J and K move lines up and down when in visual mode.
    ;; (default nil)
-   dotspacemacs-visual-line-move-text nil
+   dotspacemacs-visual-line-move-text t
 
    ;; If non nil, inverse the meaning of `g' in `:substitute' Evil ex-command.
    ;; (default nil)
@@ -223,7 +223,7 @@ values."
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
-   dotspacemacs-large-file-size 1
+   dotspacemacs-large-file-size 10
 
    ;; Location where to auto-save files. Possible values are `original' to
    ;; auto-save the file in-place, `cache' to auto-save the file to another
@@ -308,11 +308,11 @@ values."
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
-   dotspacemacs-folding-method 'evil ;; Todo: see what that is
+   dotspacemacs-folding-method 'evil							 ;; Todo: see what that is
 
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode nil						 ;; Todo: see what that is
 
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
@@ -414,14 +414,19 @@ you should place your code here."
   (setq-default term-suppress-hard-newline t)
 
   ;; for paradox-list-p
-  (setq paradox-github-token 'bfb4f1a1a4f6136e1403d92633f21193361c27a3)
+  (setq paradox-github-token (let ((tokenfile "github-token"))
+			       (if (file-readable-p tokenfile)
+				   (progn (with-temp-buffer
+					    (insert-file-contents tokenfile)
+					    (buffer-string)))
+				 nil)))
 
   (setq compilation-scroll-output t)
 
   (put 'magit-clean 'disabled nil)
 
   (setq expand-region-fast-keys-enabled nil)
-
+  (setq evil-escape-key-sequence (kbd "jj"))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

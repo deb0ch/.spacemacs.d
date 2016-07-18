@@ -53,11 +53,11 @@
   - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
   - fix typo COMMUNITY.org
 ** Ongoing PRs
-  - center home banner
   - duplicate-line-or-region:
-    - move out of better-defaults
-  - compilation colors
   - pdfview-page-numbers
+** Closed PRs
+  - center home banner
+  - compilation colors
 ** Issue reports
   - terminal: variable width unicode chars
   - Ranger: does not clean dired buffers (layer variables do not work)
