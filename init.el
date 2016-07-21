@@ -352,6 +352,13 @@ values."
    dotspacemacs-whitespace-cleanup 'changed
    ))
 
+(defun file-to-string (filename)
+  (if (file-readable-p filename)
+      (with-temp-buffer
+	(insert-file-contents filename)
+	(buffer-string))
+    (message "Can't read user file: %s, make sure that it exists and contains the correct value.")))
+
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
@@ -359,10 +366,12 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq ycmd-server-command
-	'("python" "/home/tdebeauchene/.emacs.d/private/YouCompleteMe/third_party/ycmd/ycmd"))
-  (setq ycmd-extra-conf-whitelist '("/home/tdebeauchene/ParrotSrc/*"))
-  (setq ycmd-force-semantic-completion t)
+
+  ;; ycm setup
+  (setq ycmd-server-command `("python" ,(file-to-string "~/.spacemacs.d/ycmd-server-path"))
+	ycmd-extra-conf-whitelist '("~/Programming/*"
+				    "~/ParrotSrc/*")
+	ycmd-force-semantic-completion t)
 
   (setq exec-path-from-shell-check-startup-files nil)
 )
@@ -420,12 +429,7 @@ you should place your code here."
   (setq-default term-suppress-hard-newline t)
 
   ;; for paradox-list-p
-  (setq paradox-github-token (let ((tokenfile "github-token"))
-			       (if (file-readable-p tokenfile)
-				   (progn (with-temp-buffer
-					    (insert-file-contents tokenfile)
-					    (buffer-string)))
-				 nil)))
+  (setq paradox-github-token (file-to-string "~/.spacemacs.d/github-token"))
 
   (setq compilation-scroll-output t)
 
