@@ -53,6 +53,7 @@ values."
      common-lisp
      emacs-lisp
      git
+     github
      gtags
      helm
      markdown
@@ -70,19 +71,24 @@ values."
      syntax-checking
      version-control
      ycmd
-     )
+    )
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '((spaceline :location (recipe
-   							    :fetcher github
-   							    :repo "deb0ch/spaceline"
-   							    :branch "PR/pdfview-page-numbers")))
+   dotspacemacs-additional-packages '(
+				      dtrt-indent
+		   		      powerline
+				      (spaceline :location "/home/tdebeauchene/.emacs.d/private/local/spaceline/")
+				      (gh :location (recipe :fetcher github
+                                                            :repo "sigma/gh.el"
+                                                            :commit "248ac04ac1ab0458453f4af52672768fcf8670ec"))
+				      )
 
    ;; A list of packages that will not be install and loaded.
-   dotspacemacs-excluded-packages '(evil-unimpaired yasnippet)
+   dotspacemacs-excluded-packages '(auto-yasnippet
+                                    yasnippet)
 
    ;; Defines the behaviour of Spacemacs when downloading packages.
    ;; Possible values are `used', `used-but-keep-unused' and `all'. `used' will
@@ -91,7 +97,7 @@ values."
    ;; used packages but won't delete them if they become unused. `all' will
    ;; download all the packages regardless if they are used or not and packages
    ;; won't be deleted by Spacemacs. (default is `used')
-   dotspacemacs-download-packages 'all))
+   dotspacemacs-download-packages 'used))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -355,8 +361,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq ycmd-server-command
 	'("python" "/home/tdebeauchene/.emacs.d/private/YouCompleteMe/third_party/ycmd/ycmd"))
-  (setq ycmd-extra-conf-whitelist '("/home/tdebeauchene/ParrotSrc/kimolos/workspace/*"))
+  (setq ycmd-extra-conf-whitelist '("/home/tdebeauchene/ParrotSrc/*"))
   (setq ycmd-force-semantic-completion t)
+
+  (setq exec-path-from-shell-check-startup-files nil)
 )
 
 (defun dotspacemacs/user-config ()
@@ -376,19 +384,16 @@ you should place your code here."
   ;; Do not highlight current line
   (global-hl-line-mode -1)
 
-;  (global-unset-key (kbd "C-z"))
-
-  ;;  (blink-cursor-mode 1)
-
   ;; gnu k&r bsd whitesmith stroustrup ellemtel linux python java awk user
   (setq c-default-style "linux")
   (setq-default indent-tabs-mode t)
   (setq-default tab-width 8) ; Assuming you want your tabs to be four spaces wide
   (setq c-basic-offset 8)
-;  (defvaralias 'c-basic-offset 'tab-width)
 
-  (global-set-key (kbd "C-d") 'spacemacs/duplicate-line-or-region)
   (global-set-key (kbd "C-q") 'kill-this-buffer)
+  (global-set-key (kbd "C-d") 'spacemacs/duplicate-line-or-region)
+  (with-eval-after-load 'cc-mode
+    (define-key c-mode-base-map (kbd "C-d") 'spacemacs/duplicate-line-or-region))
 
   (global-set-key [M-left] 'windmove-left)
   (global-set-key [M-right] 'windmove-right)
@@ -399,6 +404,7 @@ you should place your code here."
   (setq spacemacs-useful-buffers-regexp nil)
   (setq spacemacs-useful-buffers-regexp
 	'("\\*spacemacs\\*" "\\*magit*"))
+
   ;; Avoid useless buffers
   ;; https://github.com/syl20bnr/spacemacs/issues/6159#issuecomment-225286158
   (defun spacemacs/useful-buffer-p (buffer)
@@ -426,7 +432,15 @@ you should place your code here."
   (put 'magit-clean 'disabled nil)
 
   (setq expand-region-fast-keys-enabled nil)
+
   (setq evil-escape-key-sequence (kbd "jj"))
+
+  (setq spaceline-always-show-segments t)
+
+  ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
+  (add-to-list 'prog-mode-hook (lambda ()
+				 (modify-syntax-entry ?- "w")
+				 (modify-syntax-entry ?_ "w")))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
