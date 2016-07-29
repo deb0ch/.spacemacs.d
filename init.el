@@ -36,12 +36,6 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     javascript
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      (auto-completion :variables
 		      :disabled-for markdown org erc)
      (better-defaults :variables
@@ -51,6 +45,7 @@ values."
      (colors :variables
 	     colors-enable-nyan-cat-progress-bar nil)
      common-lisp
+     csv
      emacs-lisp
      git
      github
@@ -62,7 +57,7 @@ values."
      pdf-tools
 ;     python
      ranger
-     semantic
+     (semantic :disabled-for c++-mode)
      (shell :variables
             shell-default-height 50
             shell-default-position 'bottom)
@@ -70,6 +65,7 @@ values."
      spacemacs-layouts
      syntax-checking
      version-control
+     vim-empty-lines
      ycmd
     )
 
@@ -80,7 +76,7 @@ values."
    dotspacemacs-additional-packages '(
 				      dtrt-indent
 		   		      powerline
-				      (spaceline :location "/home/tdebeauchene/.emacs.d/private/local/spaceline/")
+				      (spaceline :location "~/.emacs.d/private/local/spaceline/")
 				      (gh :location (recipe :fetcher github
                                                             :repo "sigma/gh.el"
                                                             :commit "248ac04ac1ab0458453f4af52672768fcf8670ec"))
@@ -443,8 +439,9 @@ you should place your code here."
 
   ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
   (add-to-list 'prog-mode-hook (lambda ()
-				 (modify-syntax-entry ?- "w")
 				 (modify-syntax-entry ?_ "w")))
+  (add-to-list 'emacs-lisp-mode-hook (lambda ()
+				       (modify-syntax-entry ?- "w")))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
