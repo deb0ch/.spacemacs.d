@@ -61,7 +61,7 @@
 ** Issue reports
   - terminal: variable width unicode chars
   - Ranger: does not clean dired buffers (layer variables do not work)
-  - Multiple cursors: insert numbers breaks cursors (Helm-related ?)
+  - Multiple cursors: inserting numbers breaks cursors (Helm-related ?)
   - Multiple cursors: missing autoloads
 
 
@@ -85,10 +85,12 @@
   - Helm-swoop: appear where stated by the relevant .spacemacs variable
 ** isearch
   - center window on search result
+** layouts (persp-mode ?)
+  - do not filter buffers as useless if they were added to the current layout
 ** magit
   - git blame color ids per commit
 ** multiple cursors
-  - multiple-cursors: RET should not leave mode
+  - multiple-cursors: fix RET should not leave mode
   - multiple-cursors: add special actions transient/micro state
 ** ranger
   - major mode syntax coloring in preview buffer
@@ -120,7 +122,7 @@
   - tab-width
   - c-basic-offset
   - Cf. Misc/Packages to try/editor-config
-** flycheck kernel format-patch integration ?
+
 
 
 * Misc
