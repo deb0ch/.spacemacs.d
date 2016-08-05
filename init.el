@@ -367,6 +367,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq ycmd-server-command `("python" ,(file-to-string "~/.spacemacs.d/ycmd-server-path"))
 	ycmd-extra-conf-whitelist '("~/Programming/*"
 				    "~/ParrotSrc/*")
+	ycmd-global-config "~/.spacemacs.d/global_conf.py"
 	ycmd-force-semantic-completion t)
 
   (setq exec-path-from-shell-check-startup-files nil)
