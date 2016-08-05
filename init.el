@@ -443,7 +443,28 @@ you should place your code here."
 				 (modify-syntax-entry ?_ "w")))
   (add-to-list 'emacs-lisp-mode-hook (lambda ()
 				       (modify-syntax-entry ?- "w")))
+
+  ;; Disable smartparens for most pairs, my editing style doesn't play well with it
+  (eval-after-load 'smartparens
+    '(progn
+       (sp-pair "'" nil :actions :rem)
+       (sp-pair "\"" nil :actions :rem)))
+
+  (load "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-src-tab-acts-natively t)
+ '(org-support-shift-select t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
