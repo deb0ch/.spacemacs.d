@@ -126,7 +126,7 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'emacs
+   dotspacemacs-editing-style 'vim
 
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
@@ -249,7 +249,7 @@ values."
 
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
-   dotspacemacs-enable-paste-transient-state nil
+   dotspacemacs-enable-paste-transient-state t
 
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
@@ -290,10 +290,10 @@ values."
    dotspacemacs-inactive-transparency 90
 
    ;; If non nil show the titles of transient states. (default t)
-   dotspacemacs-show-transient-state-title t
+   dotspacemacs-show-transient-state-title nil
 
    ;; If non nil show the color guide hint for transient state keys. (default t)
-   dotspacemacs-show-transient-state-color-guide t
+   dotspacemacs-show-transient-state-color-guide nil
 
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
    dotspacemacs-mode-line-unicode-symbols t
@@ -391,36 +391,26 @@ you should place your code here."
   (global-hl-line-mode -1)
 
   ;; gnu k&r bsd whitesmith stroustrup ellemtel linux python java awk user
-  (setq c-default-style "linux")
-  (setq-default indent-tabs-mode t)
-  (setq-default tab-width 8) ; Assuming you want your tabs to be four spaces wide
-  (setq c-basic-offset 8)
+  (setq c-default-style "linux"
+        c-basic-offset 8)
+  (setq-default indent-tabs-mode t
+                tab-width 8)
 
   (global-set-key (kbd "C-q") 'kill-this-buffer)
   (global-set-key (kbd "C-d") 'spacemacs/duplicate-line-or-region)
   (with-eval-after-load 'cc-mode
     (define-key c-mode-base-map (kbd "C-d") 'spacemacs/duplicate-line-or-region))
-
   (global-set-key [M-left] 'windmove-left)
   (global-set-key [M-right] 'windmove-right)
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
 
   ;; Define useless / useful buffers
-  (setq spacemacs-useful-buffers-regexp nil)
   (setq spacemacs-useful-buffers-regexp
-	'("\\*spacemacs\\*" "\\*magit*"))
-
-  ;; Avoid useless buffers
-  ;; https://github.com/syl20bnr/spacemacs/issues/6159#issuecomment-225286158
-  (defun spacemacs/useful-buffer-p (buffer)
-    (not (spacemacs/useless-buffer-p buffer)))
-  (let ((buf-pred-entry (assq 'buffer-predicate default-frame-alist)))
-    (if buf-pred-entry
-        ;; `buffer-predicate' entry exists, modify it
-        (setcdr buf-pred-entry #'spacemacs/useful-buffer-p)
-      ;; `buffer-predicate' entry doesn't exist, create it
-      (push '(buffer-predicate . spacemacs/useful-buffer-p) default-frame-alist)))
+        '("\\*spacemacs\\*"
+          "\\*magit.*"
+          "\\*\\(ansi-term\\|eshell\\|shell\\|terminal.+\\)\\*"
+          "\\*scratch\\*"))
 
   ;; Terminal better support
   (setq-default term-suppress-hard-newline t)
@@ -434,23 +424,23 @@ you should place your code here."
 
   (setq expand-region-fast-keys-enabled nil)
 
-  (setq evil-escape-key-sequence (kbd "jj"))
+  (setq evil-escape-key-sequence (kbd "jj")
+        evil-escape-delay 0.2)
 
   (setq spaceline-always-show-segments t)
 
   ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
-  (add-to-list 'prog-mode-hook (lambda ()
-				 (modify-syntax-entry ?_ "w")))
-  (add-to-list 'emacs-lisp-mode-hook (lambda ()
-				       (modify-syntax-entry ?- "w")))
+  (add-hook 'prog-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-hook 'emacs-lisp-mode-hook #'(lambda () (modify-syntax-entry ?- "w")))
 
-  ;; Disable smartparens for most pairs, my editing style doesn't play well with it
-  (eval-after-load 'smartparens
-    '(progn
-       (sp-pair "'" nil :actions :rem)
-       (sp-pair "\"" nil :actions :rem)))
+  (setq spacemacs-default-company-backends
+        '((company-dabbrev-code
+           company-gtags
+           company-etags
+           company-keywords)
+          company-files
+          company-dabbrev))
 
-  (load "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -460,8 +450,11 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+
  '(org-src-tab-acts-natively t)
  '(org-support-shift-select t))
+
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
