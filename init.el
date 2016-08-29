@@ -55,7 +55,7 @@ values."
      multiple-cursors
      org
      pdf-tools
-;     python
+     python
      ranger
      (semantic :disabled-for c++-mode)
      (shell :variables
@@ -117,16 +117,21 @@ values."
    dotspacemacs-elpa-timeout 5
 
    ;; If non nil then spacemacs will check for updates at startup
-   ;; when the current branch is not `develop'. (default t)
+   ;; when the current branch is not `develop'. Note that checking for
+   ;; new versions works via git commands, thus it calls GitHub services
+   ;; whenever you start Emacs. (default nil)
    dotspacemacs-check-for-update nil
-
+   ;; If non-nil, a form that evaluates to a package directory. For example, to
+   ;; use different package directories for different Emacs versions, set this
+   ;; to `emacs-version'.
+   dotspacemacs-elpa-subdirectory nil
    ;; One of `vim', `emacs' or `hybrid'.
    ;; `hybrid' is like `vim' except that `insert state' is replaced by the
    ;; `hybrid state' with `emacs' key bindings. The value can also be a list
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'hybrid
 
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
@@ -138,8 +143,8 @@ values."
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
    dotspacemacs-startup-banner 'random*
-   ;; List of items to show in startup buffer or an association list of of
-   ;; the form `(list-type . list-size)`. If nil it is disabled.
+   ;; List of items to show in startup buffer or an association list of
+   ;; the form `(list-type . list-size)`. If nil then it is disabled.
    ;; Possible values for list-type are:
    ;; `recents' `bookmarks' `projects' `agenda' `todos'."
    dotspacemacs-startup-lists '((recents . 15)
@@ -247,6 +252,11 @@ values."
    ;; `left', or `right'. (default 'bottom)
    dotspacemacs-helm-position 'right
 
+   ;; Controls fuzzy matching in helm. If set to `always', force fuzzy matching
+   ;; in all non-asynchronous sources. If set to `source', preserve individual
+   ;; source settings. Else, disable fuzzy matching in all sources.
+   ;; (default 'always)
+   dotspacemacs-helm-use-fuzzy 'always
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
    dotspacemacs-enable-paste-transient-state t
@@ -310,7 +320,7 @@ values."
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
-   dotspacemacs-folding-method 'evil							 ;; Todo: see what that is
+   dotspacemacs-folding-method 'origami
 
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
@@ -326,7 +336,7 @@ values."
    ;; emphasis the current one). (default 'all)
    dotspacemacs-highlight-delimiters 'all
 
-   ;; If non nil advises quit functions to keep server open when quitting.
+   ;; If non nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
    dotspacemacs-persistent-server nil
 
@@ -381,20 +391,11 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ;; Line number format
-  (setq linum-format "%3d \u2502")
+  (load "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el")
 
-  ;; Remplace le texte selectionne si on tape
-  (delete-selection-mode t)
-
-  ;; Do not highlight current line
-  (global-hl-line-mode -1)
-
-  ;; gnu k&r bsd whitesmith stroustrup ellemtel linux python java awk user
-  (setq c-default-style "linux"
-        c-basic-offset 8)
-  (setq-default indent-tabs-mode t
-                tab-width 8)
+  ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
+  (add-hook 'prog-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-hook 'emacs-lisp-mode-hook #'(lambda () (modify-syntax-entry ?- "w")))
 
   (global-set-key (kbd "C-q") 'kill-this-buffer)
   (global-set-key (kbd "C-d") 'spacemacs/duplicate-line-or-region)
@@ -405,59 +406,63 @@ you should place your code here."
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
 
-  ;; Define useless / useful buffers
-  (setq spacemacs-useful-buffers-regexp
-        '("\\*spacemacs\\*"
-          "\\*magit.*"
-          "\\*\\(ansi-term\\|eshell\\|shell\\|terminal.+\\)\\*"
-          "\\*scratch\\*"))
-
-  ;; Terminal better support
-  (setq-default term-suppress-hard-newline t)
-
-  ;; for paradox-list-p
-  (setq paradox-github-token (file-to-string "~/.spacemacs.d/github-token"))
-
-  (setq compilation-scroll-output t)
 
   (put 'magit-clean 'disabled nil)
 
-  (setq expand-region-fast-keys-enabled nil)
+  (delete-selection-mode t)	;; Remplace le texte selectionne si on tape
+  (global-hl-line-mode -1)	;; Do not highlight current line
 
-  (setq evil-escape-key-sequence (kbd "jj")
-        evil-escape-delay 0.2)
+  (setq-default indent-tabs-mode t
+                tab-width 8
+		;; Terminal better support
+		term-suppress-hard-newline t)
 
-  (setq spaceline-always-show-segments t)
+  (setq
+   ;; Line number format
+   linum-format "%3d \u2502"
+   ;; gnu k&r bsd whitesmith stroustrup ellemtel linux python java awk user
+   c-default-style "linux"
+   c-basic-offset 8
+   spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
+                                     "\\*magit.*"
+                                     "\\*\\(ansi-term\\|eshell\\|shell\\|terminal.+\\)\\*"
+                                     "\\*scratch\\*")
+   ;; for paradox-list-p
+   paradox-github-token (file-to-string "~/.spacemacs.d/github-token")
+   compilation-scroll-output t
+   expand-region-fast-keys-enabled nil
+   spaceline-always-show-segments t
+   spacemacs-default-company-backends '((company-dabbrev-code
+                                         company-gtags
+                                         company-etags
+                                         company-keywords)
+                                        company-files
+                                        company-dabbrev)
+   )
 
-  ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
-  (add-hook 'prog-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
-  (add-hook 'emacs-lisp-mode-hook #'(lambda () (modify-syntax-entry ?- "w")))
+  (with-eval-after-load 'magit
+    (add-to-list 'magit-log-arguments "--color"))
 
-  (setq spacemacs-default-company-backends
-        '((company-dabbrev-code
-           company-gtags
-           company-etags
-           company-keywords)
-          company-files
-          company-dabbrev))
-
+  (load "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
+ '(evil-escape-delay 0.3)
+ '(evil-escape-key-sequence "jk")
+ '(evil-escape-mode t)
  '(org-src-tab-acts-natively t)
  '(org-support-shift-select t))
-
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(ggtags-highlight ((t nil))))
