@@ -4,14 +4,10 @@
 *** Explore
 **** packages
   - rtags
-  - ycmd
-  - irony
-**** layers
-  - completion layer
-  - c/c++ layer
 **** header finders
   - Bear
-  - https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.py
+  - https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.pyi
+  - Alchemy
 ** configs
   - scroll: keep cursor 2 lines away from window ends
 ** daemon mode
@@ -29,9 +25,6 @@
   - org-mode ~M-<arrows>~ to navigate windows
   - helm-projectile-ag to ~SPC p s~
   - avy-goto-char
-  - magit-stash-popup
-  - magit-branch-popup
-  - magit-reflog
   - Helm-projectile: bind to M-o:
 #+BEGIN_SRC lisp
 	(defun sr-open-file()
@@ -51,18 +44,19 @@
   - 'q' for quiting in all transient states
 ** PRs in progress
   - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
-  - fix typo COMMUNITY.org
+  - ycmd layer: better global_conf.py
 ** Ongoing PRs
-  - duplicate-line-or-region:
-  - pdfview-page-numbers
-** Closed PRs
-  - center home banner
-  - compilation colors
+  - duplicate-line-or-region
+  - spaceline: always display segments
+  - spacemacs buffer: fix random ascii banners
+  - spacemacs buffer: center startup summary
 ** Issue reports
   - terminal: variable width unicode chars
   - Ranger: does not clean dired buffers (layer variables do not work)
   - Multiple cursors: inserting numbers breaks cursors (Helm-related ?)
-  - Multiple cursors: missing autoloads
+  - Multiple cursors: missing autoloadsi
+  - Multiple cursors: inserting newline leaves mode
+  - ycmd: strip flags that are not used for parsing (e.g. "-m" flags)
 
 
 * Packages
@@ -134,3 +128,4 @@
   - guess-style
   - fuzzy-format
   - editor-config (https://github.com/editorconfig/editorconfig-emacs)
+  - emacs-purpose
