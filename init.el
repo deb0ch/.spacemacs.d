@@ -406,8 +406,6 @@ you should place your code here."
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
 
-  (push '("*magit" . emacs) evil-buffer-regexps)
-
   (put 'magit-clean 'disabled nil)
 
   (delete-selection-mode t)	;; Remplace le texte selectionne si on tape
@@ -456,7 +454,6 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(evil-escape-delay 0.3)
- '(evil-escape-excluded-states '(visual visual-line))
  '(evil-escape-key-sequence "jk")
  '(evil-escape-mode t)
  '(org-src-tab-acts-natively t)
