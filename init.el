@@ -179,19 +179,22 @@ values."
 
    ;; The leader key
    dotspacemacs-leader-key "SPC"
+
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
    dotspacemacs-emacs-leader-key "M-m"
+
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","
+
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
    ;; (default "C-M-m)
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
 
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
    ;; (default "SPC")
-   dotspacemacs-emacs-command-key "SPC"
+   dotspacemacs-emacs-command-key ";"
 
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
@@ -408,6 +411,10 @@ you should place your code here."
   (global-set-key [M-right] 'windmove-right)
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
+
+  (spacemacs/set-leader-keys
+    "SPC" #'avy-goto-char-timer
+    ":"   #'helm-M-x)
 
   (put 'magit-clean 'disabled nil)
 
