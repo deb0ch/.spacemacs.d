@@ -390,7 +390,11 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  (load "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el")
+  (add-to-list 'load-path "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el")
+  (autoload 'pdir-search
+    "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el"
+    "Search for people in the Parrot directory."
+    t)
 
   ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
   (add-hook 'prog-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
@@ -440,8 +444,6 @@ you should place your code here."
 
   (with-eval-after-load 'magit
     (add-to-list 'magit-log-arguments "--color"))
-
-  (load "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
