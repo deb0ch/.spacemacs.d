@@ -323,7 +323,7 @@ values."
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
-   dotspacemacs-folding-method 'origami
+   dotspacemacs-folding-method 'evil
 
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
@@ -400,8 +400,14 @@ you should place your code here."
     t)
 
   ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
-  (add-hook 'prog-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
-  (add-hook 'emacs-lisp-mode-hook #'(lambda () (modify-syntax-entry ?- "w")))
+  (add-hook 'prog-mode-hook #'(lambda ()
+				(modify-syntax-entry ?_ "w")))
+  (add-hook 'emacs-lisp-mode-hook #'(lambda ()
+				      (modify-syntax-entry ?- "w")))
+
+  (add-hook 'prog-mode-hook #'(lambda ()
+				(dtrt-indent-mode)
+				(dtrt-indent-adapt)))
 
   (global-set-key (kbd "C-q") 'kill-this-buffer)
   (global-set-key (kbd "C-d") 'spacemacs/duplicate-line-or-region)
@@ -411,6 +417,8 @@ you should place your code here."
   (global-set-key [M-right] 'windmove-right)
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
+  (global-set-key (kbd ";" 'evil-ex))
+  (global-set-key (kbd ":" 'evil-repeat-find-char))
 
   (spacemacs/set-leader-keys
     "SPC" #'avy-goto-char-timer
@@ -465,7 +473,10 @@ you should place your code here."
  '(evil-escape-key-sequence "jk")
  '(evil-escape-mode t)
  '(org-src-tab-acts-natively t)
- '(org-support-shift-select t))
+ '(org-support-shift-select t)
+ '(sp-highlight-pair-overlay nil)
+ '(sp-highlight-wrap-overlay nil)
+ '(sp-highlight-wrap-tag-overlay nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
