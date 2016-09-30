@@ -57,7 +57,7 @@ values."
      pdf-tools
      python
      ranger
-     (semantic :disabled-for c++-mode)
+     ;(semantic :disabled-for c++-mode)
      (shell :variables
             shell-default-height 50
             shell-default-position 'bottom)
@@ -382,7 +382,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
 				    "~/ParrotSrc/*")
 	ycmd-force-semantic-completion t)
 
-  (setq exec-path-from-shell-check-startup-files nil)
+  (setq exec-path-from-shell-check-startup-files nil
+        spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
+                                          "\\*magit.*"
+                                          "\\*\\(ansi-term\\|eshell\\|shell\\|terminal.+\\)\\*"
+                                          "\\*scratch\\*"))
 )
 
 (defun dotspacemacs/user-config ()
@@ -408,6 +412,10 @@ you should place your code here."
   (add-hook 'prog-mode-hook #'(lambda ()
 				(dtrt-indent-mode)
 				(dtrt-indent-adapt)))
+  ;; indent switch cases
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (c-set-offset 'case-label '+)))
 
   (global-set-key (kbd "C-q") 'kill-this-buffer)
   (global-set-key (kbd "C-d") 'spacemacs/duplicate-line-or-region)
@@ -417,8 +425,8 @@ you should place your code here."
   (global-set-key [M-right] 'windmove-right)
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
-  (global-set-key (kbd ";" 'evil-ex))
-  (global-set-key (kbd ":" 'evil-repeat-find-char))
+  (define-key evil-normal-state-map ";" 'evil-ex)
+  (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
 
   (spacemacs/set-leader-keys
     "SPC" #'avy-goto-char-timer
@@ -455,11 +463,21 @@ you should place your code here."
                                          company-keywords)
                                         company-files
                                         company-dabbrev)
-   )
+   erc-autojoin-channels-alist '(("parrot.com"
+                                  "#parrot"
+                                  "#kikoo"
+                                  "#emacs")))
 
   (with-eval-after-load 'magit
     (add-to-list 'magit-log-arguments "--color"))
-)
+  )
+
+(defun parrot-connect ()
+  (interactive)
+  (erc-tls :server "jinan.parrot.biz"
+           :port "7000"
+           :nick "deb0ch"
+           :full-name "Thomas de Beauchene"))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -469,14 +487,15 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(eldoc-print-after-edit t)
  '(evil-escape-delay 0.3)
  '(evil-escape-key-sequence "jk")
  '(evil-escape-mode t)
  '(org-src-tab-acts-natively t)
  '(org-support-shift-select t)
- '(sp-highlight-pair-overlay nil)
- '(sp-highlight-wrap-overlay nil)
- '(sp-highlight-wrap-tag-overlay nil))
+ '(ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))))
+
+;; '(flycheck-status-emoji-mode t)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
