@@ -73,14 +73,12 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(
-				      dtrt-indent
-		   		      powerline
-				      (spaceline :location "~/.emacs.d/private/local/spaceline/")
-				      (gh :location (recipe :fetcher github
+   dotspacemacs-additional-packages '(dtrt-indent
+                                      powerline
+                                      (spaceline :location "~/.emacs.d/private/local/spaceline/")
+                                      (gh :location (recipe :fetcher github
                                                             :repo "sigma/gh.el"
-                                                            :commit "248ac04ac1ab0458453f4af52672768fcf8670ec"))
-				      )
+                                                            :commit "248ac04ac1ab0458453f4af52672768fcf8670ec")))
 
    ;; A list of packages that will not be install and loaded.
    dotspacemacs-excluded-packages '(auto-yasnippet
@@ -125,6 +123,7 @@ values."
    ;; use different package directories for different Emacs versions, set this
    ;; to `emacs-version'.
    dotspacemacs-elpa-subdirectory nil
+
    ;; One of `vim', `emacs' or `hybrid'.
    ;; `hybrid' is like `vim' except that `insert state' is replaced by the
    ;; `hybrid state' with `emacs' key bindings. The value can also be a list
@@ -143,6 +142,7 @@ values."
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
    dotspacemacs-startup-banner 'random*
+
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
    ;; Possible values for list-type are:
@@ -152,6 +152,7 @@ values."
                                 (bookmarks . 5)
                                 (agenda . 5)
                                 (todos . 5))
+
    ;; Default major mode of the scratch buffer (default `text-mode')
    dotspacemacs-scratch-mode 'lisp-interaction-mode
 
@@ -260,6 +261,7 @@ values."
    ;; source settings. Else, disable fuzzy matching in all sources.
    ;; (default 'always)
    dotspacemacs-helm-use-fuzzy 'always
+
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
    dotspacemacs-enable-paste-transient-state t
@@ -378,9 +380,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; ycm setup
   (setq ycmd-server-command `("python" ,(file-to-string "~/.spacemacs.d/ycmd-server-path"))
-	ycmd-extra-conf-whitelist '("~/Programming/*"
-				    "~/ParrotSrc/*")
-	ycmd-force-semantic-completion t)
+        ycmd-extra-conf-whitelist '("~/Programming/*"
+                                    "~/ParrotSrc/*")
+        ycmd-force-semantic-completion t)
 
   (setq exec-path-from-shell-check-startup-files nil
         spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
@@ -405,9 +407,9 @@ you should place your code here."
 
   ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
   (add-hook 'prog-mode-hook #'(lambda ()
-				(modify-syntax-entry ?_ "w")))
+                                (modify-syntax-entry ?_ "w")))
   (add-hook 'emacs-lisp-mode-hook #'(lambda ()
-				      (modify-syntax-entry ?- "w")))
+                                      (modify-syntax-entry ?- "w")))
 
   (add-hook 'prog-mode-hook #'(lambda ()
 				(dtrt-indent-mode)
@@ -425,7 +427,7 @@ you should place your code here."
   (global-set-key [M-right] 'windmove-right)
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
-  (define-key evil-normal-state-map ";" 'evil-ex)
+  (define-key evil-normal-state-map ";" 'evil-ex) ; Todo do that for all other evil states
   (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
 
   (spacemacs/set-leader-keys
@@ -491,6 +493,8 @@ you should place your code here."
  '(evil-escape-delay 0.3)
  '(evil-escape-key-sequence "jk")
  '(evil-escape-mode t)
+ '(helm-ag-fuzzy-match t)
+ '(helm-ag-use-temp-buffer t)
  '(org-src-tab-acts-natively t)
  '(org-support-shift-select t)
  '(ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))))

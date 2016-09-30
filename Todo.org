@@ -5,13 +5,11 @@
 **** packages
   - rtags
 **** header finders
-  - Bear
   - https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.pyi
   - Alchemy
 ** configs
   - scroll: keep cursor 2 lines away from window ends
 ** daemon mode
-  - fix git gutter in daemon mode
   - with-editor (or other): when in internal terminal, make command `ne` open files in current instance.
 *** set environment
   - launch daemon at startup (integrate to systemd ?)
@@ -20,36 +18,19 @@
 ** legacy
   - tty-format: display colors in log files
   - linum-off
-  - dtrt-indent
-** keybindings
-  - org-mode ~M-<arrows>~ to navigate windows
-  - helm-projectile-ag to ~SPC p s~
-  - avy-goto-char
-  - Helm-projectile: bind to M-o:
-#+BEGIN_SRC lisp
-	(defun sr-open-file()
-	       "Open file using projectile+Helm or ido"
-	       (interactive)
-	       (if (projectile-project-p)
-	       	   (helm-projectile)
-		   (helm-for-files)
-	       )
-	)
-#+END_SRC
+*** keybindings
+   - org-mode ~M-<arrows>~ to navigate windows
+   - helm-projectile-ag to ~SPC p s~
 
 
 * Contribute
 ** Pull request ideas
   - source-code-pro: automatic install at startup
-  - 'q' for quiting in all transient states
 ** PRs in progress
   - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
-  - ycmd layer: better global_conf.py
 ** Ongoing PRs
   - duplicate-line-or-region
   - spaceline: always display segments
-  - spacemacs buffer: fix random ascii banners
-  - spacemacs buffer: center startup summary
 ** Issue reports
   - terminal: variable width unicode chars
   - Ranger: does not clean dired buffers (layer variables do not work)
