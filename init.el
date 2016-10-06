@@ -41,7 +41,9 @@ values."
      (better-defaults :variables
 		      better-defaults-move-to-beginning-of-code-first nil
 		      better-defaults-move-to-end-of-code-first t)
-     c-c++
+     (c-c++ :variables
+	    c-c++-default-mode-for-headers 'c++-mode
+	    c-c++-enable-clang-support nil)
      (colors :variables
 	     colors-enable-nyan-cat-progress-bar nil)
      common-lisp
@@ -55,15 +57,17 @@ values."
      multiple-cursors
      org
      pdf-tools
-     python
+     (python :variables
+	     python-enable-yapf-format-on-save t
+	     python-sort-imports-on-save t)
      ranger
-     ;(semantic :disabled-for c++-mode)
      (shell :variables
             shell-default-height 50
             shell-default-position 'bottom)
      shell-scripts
      spacemacs-layouts
-     syntax-checking
+     (syntax-checking :variables
+		      syntax-checking-use-original-bitmaps t)
      version-control
      vim-empty-lines
      ycmd
@@ -118,11 +122,12 @@ values."
    ;; when the current branch is not `develop'. Note that checking for
    ;; new versions works via git commands, thus it calls GitHub services
    ;; whenever you start Emacs. (default nil)
-   dotspacemacs-check-for-update nil
+   dotspacemacs-check-for-update t
+
    ;; If non-nil, a form that evaluates to a package directory. For example, to
    ;; use different package directories for different Emacs versions, set this
    ;; to `emacs-version'.
-   dotspacemacs-elpa-subdirectory nil
+   dotspacemacs-elpa-subdirectory 'emacs-version
 
    ;; One of `vim', `emacs' or `hybrid'.
    ;; `hybrid' is like `vim' except that `insert state' is replaced by the
@@ -130,7 +135,10 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'hybrid
+   dotspacemacs-editing-style '(hybrid :variables
+				       hybrid-mode-enable-evilified-state t
+				       hybrid-mode-enable-hjkl-bindings t
+				       hybrid-mode-default-state 'normal)
 
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
@@ -370,6 +378,13 @@ values."
 	(buffer-string))
     (message "Can't read user file: %s, make sure that it exists and contains the correct value.")))
 
+(defun parrot-connect ()
+  (interactive)
+  (erc-tls :server "jinan.parrot.biz"
+	   :port "7000"
+	   :nick "deb0ch"
+	   :full-name "Thomas de Beauchene"))
+
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
@@ -385,7 +400,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
         ycmd-force-semantic-completion t)
 
   (setq exec-path-from-shell-check-startup-files nil
-        spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
+	spacemacs-default-company-backends '()
+	company-show-numbers t
+	spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
                                           "\\*magit.*"
                                           "\\*\\(ansi-term\\|eshell\\|shell\\|terminal.+\\)\\*"
                                           "\\*scratch\\*"))
@@ -399,11 +416,19 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Local packages
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
   (add-to-list 'load-path "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el")
   (autoload 'pdir-search
     "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el"
     "Search for people in the Parrot directory."
     t)
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Hooks
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
   (add-hook 'prog-mode-hook #'(lambda ()
@@ -419,6 +444,10 @@ you should place your code here."
             (lambda ()
               (c-set-offset 'case-label '+)))
 
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Keybindings
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
   (global-set-key (kbd "C-q") 'kill-this-buffer)
   (global-set-key (kbd "C-d") 'spacemacs/duplicate-line-or-region)
   (with-eval-after-load 'cc-mode
@@ -427,6 +456,7 @@ you should place your code here."
   (global-set-key [M-right] 'windmove-right)
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
+
   (define-key evil-normal-state-map ";" 'evil-ex) ; Todo do that for all other evil states
   (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
 
@@ -434,10 +464,21 @@ you should place your code here."
     "SPC" #'avy-goto-char-timer
     ":"   #'helm-M-x)
 
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Function calls
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
   (put 'magit-clean 'disabled nil)
 
   (delete-selection-mode t)	;; Remplace le texte selectionne si on tape
   (global-hl-line-mode -1)	;; Do not highlight current line
+
+  (with-eval-after-load 'magit
+    (add-to-list 'magit-log-arguments "--color"))
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Setq
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   (setq-default indent-tabs-mode t
                 tab-width 8
@@ -450,6 +491,7 @@ you should place your code here."
    ;; gnu k&r bsd whitesmith stroustrup ellemtel linux python java awk user
    c-default-style "linux"
    c-basic-offset 8
+   ycmd-parse-conditions '(save mode-enabled)
    spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
                                      "\\*magit.*"
                                      "\\*\\(ansi-term\\|eshell\\|shell\\|terminal.+\\)\\*"
@@ -469,17 +511,9 @@ you should place your code here."
                                   "#parrot"
                                   "#kikoo"
                                   "#emacs")))
-
-  (with-eval-after-load 'magit
-    (add-to-list 'magit-log-arguments "--color"))
   )
 
-(defun parrot-connect ()
-  (interactive)
-  (erc-tls :server "jinan.parrot.biz"
-           :port "7000"
-           :nick "deb0ch"
-           :full-name "Thomas de Beauchene"))
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -495,6 +529,10 @@ you should place your code here."
  '(evil-escape-mode t)
  '(helm-ag-fuzzy-match t)
  '(helm-ag-use-temp-buffer t)
+ '(helm-buffer-max-length nil)
+ '(helm-buffer-skip-remote-checking t)
+ '(helm-buffers-fuzzy-matching t)
+ '(helm-buffers-truncate-lines nil)
  '(org-src-tab-acts-natively t)
  '(org-support-shift-select t)
  '(ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))))
