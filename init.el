@@ -37,25 +37,25 @@ values."
    dotspacemacs-configuration-layers
    '(
      (auto-completion :variables
-		      :disabled-for markdown org erc)
+                      :disabled-for markdown org erc)
      (better-defaults :variables
-		      better-defaults-move-to-beginning-of-code-first nil
-		      better-defaults-move-to-end-of-code-first t)
+                      better-defaults-move-to-beginning-of-code-first nil
+                      better-defaults-move-to-end-of-code-first t)
      (c-c++ :variables
-	    c-c++-default-mode-for-headers 'c++-mode
-	    c-c++-enable-clang-support nil)
+            c-c++-default-mode-for-headers 'c++-mode
+            c-c++-enable-clang-support nil)
      (colors :variables
-	     colors-enable-nyan-cat-progress-bar nil)
+             colors-enable-nyan-cat-progress-bar nil)
      common-lisp
      csv
      emacs-lisp
      (erc :packages (not erc-social-graph)
-	  :variables
-	  erc-server-list '(("jinan.parrot.biz"
-			     :ssl t
-			     :port "7000"
-			     :nick "deb0ch"
-			     :full-name "Thomas de Beauchene")))
+          :variables
+          erc-server-list '(("jinan.parrot.biz"
+                             :ssl t
+                             :port "7000"
+                             :nick "deb0ch"
+                             :full-name "Thomas de Beauchene")))
      git
      github
      gtags
@@ -65,8 +65,8 @@ values."
      org
      pdf-tools
      (python :variables
-	     python-enable-yapf-format-on-save t
-	     python-sort-imports-on-save t)
+             python-enable-yapf-format-on-save t
+             python-sort-imports-on-save t)
      ranger
      (shell :variables
             shell-default-height 50
@@ -74,7 +74,7 @@ values."
      shell-scripts
      spacemacs-layouts
      (syntax-checking :variables
-		      syntax-checking-use-original-bitmaps t)
+                      syntax-checking-use-original-bitmaps t)
      version-control
      vim-empty-lines
      ycmd
@@ -85,7 +85,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(dtrt-indent
-                                      powerline
+				      powerline
                                       (spaceline :location "~/.emacs.d/private/local/spaceline/")
                                       (gh :location (recipe :fetcher github
                                                             :repo "sigma/gh.el"
@@ -143,9 +143,9 @@ values."
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
    dotspacemacs-editing-style '(hybrid :variables
-				       hybrid-mode-enable-evilified-state t
-				       hybrid-mode-enable-hjkl-bindings t
-				       hybrid-mode-default-state 'normal)
+                                       hybrid-mode-enable-evilified-state t
+                                       hybrid-mode-enable-hjkl-bindings t
+                                       hybrid-mode-default-state 'normal)
 
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
@@ -344,7 +344,7 @@ values."
 
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode nil						 ;; Todo: see what that is
+   dotspacemacs-smartparens-strict-mode nil                                              ;; Todo: see what that is
 
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
@@ -381,8 +381,8 @@ values."
 (defun file-to-string (filename)
   (if (file-readable-p filename)
       (with-temp-buffer
-	(insert-file-contents filename)
-	(buffer-string))
+        (insert-file-contents filename)
+        (buffer-string))
     (message "Can't read user file: %s, make sure that it exists and contains the correct value.")))
 
 (defun dotspacemacs/user-init ()
@@ -400,9 +400,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
         ycmd-force-semantic-completion t)
 
   (setq exec-path-from-shell-check-startup-files nil
-	spacemacs-default-company-backends '()
-	company-show-numbers t
-	spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
+        spacemacs-default-company-backends '()
+        company-show-numbers t
+        spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
                                           "\\*magit.*"
                                           "\\*\\(ansi-term\\|eshell\\|shell\\|terminal.+\\)\\*"
                                           "\\*scratch\\*"))
@@ -437,8 +437,8 @@ you should place your code here."
                                       (modify-syntax-entry ?- "w")))
 
   (add-hook 'prog-mode-hook #'(lambda ()
-				(dtrt-indent-mode)
-				(dtrt-indent-adapt)))
+                                (dtrt-indent-mode)
+                                (dtrt-indent-adapt)))
   ;; indent switch cases
   (add-hook 'c-mode-common-hook
             (lambda ()
@@ -482,8 +482,8 @@ you should place your code here."
 
   (setq-default indent-tabs-mode t
                 tab-width 8
-		;; Terminal better support
-		term-suppress-hard-newline t)
+                ;; Terminal better support
+                term-suppress-hard-newline t)
 
   (setq
    ;; Line number format
