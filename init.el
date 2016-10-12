@@ -49,6 +49,13 @@ values."
      common-lisp
      csv
      emacs-lisp
+     (erc :packages (not erc-social-graph)
+	  :variables
+	  erc-server-list '(("jinan.parrot.biz"
+			     :ssl t
+			     :port "7000"
+			     :nick "deb0ch"
+			     :full-name "Thomas de Beauchene")))
      git
      github
      gtags
@@ -378,13 +385,6 @@ values."
 	(buffer-string))
     (message "Can't read user file: %s, make sure that it exists and contains the correct value.")))
 
-(defun parrot-connect ()
-  (interactive)
-  (erc-tls :server "jinan.parrot.biz"
-	   :port "7000"
-	   :nick "deb0ch"
-	   :full-name "Thomas de Beauchene"))
-
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
@@ -507,13 +507,8 @@ you should place your code here."
                                          company-keywords)
                                         company-files
                                         company-dabbrev)
-   erc-autojoin-channels-alist '(("parrot.com"
-                                  "#parrot"
-                                  "#kikoo"
-                                  "#emacs")))
-  )
-
-
+ )
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
