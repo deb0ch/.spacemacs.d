@@ -10,7 +10,10 @@
 ;;   `multiple-cursors/post-init-PACKAGE' to customize the package as it is loaded.
 
 (defconst multiple-cursors-packages
-  '(multiple-cursors)
+  '(
+    multiple-cursors
+    expand-region
+    )
   "The list of Lisp packages required by the multiple-cursors layer."
   )
 
@@ -18,6 +21,4 @@
   (use-package multiple-cursors
     :defer t
     :commands (mc/cycle-forward
-	       mc/cycle-backward)))
-
-;;; packages.el ends here
+               mc/cycle-backward)))
