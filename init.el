@@ -450,17 +450,10 @@ you should place your code here."
   ;; Keybindings
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  (global-set-key (kbd "C-q") 'kill-this-buffer)
-  (global-set-key (kbd "C-d") 'spacemacs/duplicate-line-or-region)
-  (with-eval-after-load 'cc-mode
-    (define-key c-mode-base-map (kbd "C-d") 'spacemacs/duplicate-line-or-region))
   (global-set-key [M-left] 'windmove-left)
   (global-set-key [M-right] 'windmove-right)
   (global-set-key [M-up] 'windmove-up)
   (global-set-key [M-down] 'windmove-down)
-
-  (define-key evil-normal-state-map ";" 'evil-ex) ; Todo do that for all other evil states
-  (define-key evil-normal-state-map ":" 'evil-repeat-find-char)
 
   (spacemacs/set-leader-keys
     "SPC" #'avy-goto-char-timer
@@ -520,12 +513,14 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(avy-case-fold-search nil)
  '(eldoc-print-after-edit t)
  '(evil-escape-delay 0.3)
  '(evil-escape-key-sequence "jk")
  '(evil-escape-mode t)
  '(helm-ag-fuzzy-match t)
  '(helm-ag-use-temp-buffer t)
+ '(evil-escape-unordered-key-sequence t)
  '(helm-buffer-max-length nil)
  '(helm-buffer-skip-remote-checking t)
  '(helm-buffers-fuzzy-matching t)
