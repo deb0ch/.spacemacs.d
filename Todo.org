@@ -26,6 +26,8 @@
 * Contribute
 ** Pull request ideas
   - source-code-pro: automatic install at startup
+  - 'q' for quiting in all transient states
+  - greeting message in home buffer: tips, quotes and all.
 ** PRs in progress
   - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
 ** Ongoing PRs
