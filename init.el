@@ -503,6 +503,20 @@ you should place your code here."
                                         company-files
                                         company-dabbrev)
  )
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Work around https://github.com/syl20bnr/spacemacs/issues/7270
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  (with-eval-after-load "persp-mode"
+    (defun persp-remove-killed-buffers ()
+      (interactive)
+      (mapc #'(lambda (p)
+                (when p
+                  (setf (persp-buffers p)
+                        (delete-if-not #'buffer-live-p
+                                       (persp-buffers p)))))
+            (persp-persps))))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
