@@ -396,10 +396,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
   ;; ycm setup
-  (setq ycmd-server-command `("python" ,(file-to-string "~/.spacemacs.d/ycmd-server-path"))
+  (setq ycmd-server-command `("python" ,(expand-file-name "~/.emacs.d/private/YouCompleteMe/third_party/ycmd/ycmd"))
         ycmd-extra-conf-whitelist '("~/Programming/*"
                                     "~/ParrotSrc/*")
-        ycmd-force-semantic-completion t)
+        ycmd-force-semantic-completion nil)
 
   (setq exec-path-from-shell-check-startup-files nil
         spacemacs-default-company-backends '()
