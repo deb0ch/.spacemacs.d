@@ -86,7 +86,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(dtrt-indent
-				      (gh :location (recipe :fetcher github
+                                      (gh :location (recipe :fetcher github
                                                             :repo "sigma/gh.el"
                                                             :commit "248ac04ac1ab0458453f4af52672768fcf8670ec")))
 
@@ -195,6 +195,13 @@ values."
    ;; The leader key
    dotspacemacs-leader-key "SPC"
 
+   ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
+   ;; (default "SPC")
+   dotspacemacs-emacs-command-key ";"
+
+   ;; The key used for Vim Ex commands (default ":")
+   dotspacemacs-ex-command-key ":"
+
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
    dotspacemacs-emacs-leader-key "M-m"
@@ -204,12 +211,8 @@ values."
    dotspacemacs-major-mode-leader-key ","
 
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
-   ;; (default "C-M-m)
+   ;; (default "C-M-m")
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
-
-   ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
-   ;; (default "SPC")
-   dotspacemacs-emacs-command-key ";"
 
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
@@ -461,7 +464,7 @@ you should place your code here."
 
   (spacemacs/set-leader-keys
     "SPC" #'avy-goto-char-timer
-    ":"   #'helm-M-x)
+    ":" #'evilnc-comment-operator)
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Function calls
