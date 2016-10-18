@@ -74,9 +74,10 @@ values."
      shell-scripts
      spacemacs-layouts
      (syntax-checking :variables
-                      syntax-checking-use-original-bitmaps t)
+                      syntax-checking-use-original-bitmaps nil)
      version-control
      vim-empty-lines
+     xkcd
      ycmd
     )
 
@@ -85,9 +86,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(dtrt-indent
-				      powerline
-                                      (spaceline :location "~/.emacs.d/private/local/spaceline/")
-                                      (gh :location (recipe :fetcher github
+				      (gh :location (recipe :fetcher github
                                                             :repo "sigma/gh.el"
                                                             :commit "248ac04ac1ab0458453f4af52672768fcf8670ec")))
 
