@@ -54,7 +54,7 @@ values."
           erc-server-list '(("jinan.parrot.biz"
                              :ssl t
                              :port "7000"
-                             :nick "deb0ch"
+                             :nick "ThomdB"
                              :full-name "Thomas de Beauchene")))
      git
      github
@@ -174,6 +174,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(monokai
+                         gruvbox
                          spacemacs-dark
                          spacemacs-light
                          solarized-light
