@@ -1,0 +1,25 @@
+
+How to choose per-system recipes ?
+
+* class ThirdParty
+** install
+** installed-p
+** uninstall
+** update
+
+* Files
+** .cache/thirdparty
+contains a list of failed installs (to not retry them automatically)
+
+* Functions
+** install(thirdparty) (interactive)
+** install-all() (interactive)
+- do not retry previously failed installs is the flag ~spacemacs-thirdparty--install-auto~ is on
+** uninstall-all() (interactive)
+** update(thirdparty) (interactive)
+
+* Variables
+** spacemacs-thirdparty--install-auto
+if t, means that install is automatic, do not retry failed packages present in ~.cache/thirdparty~
+** spacemacs-thirdparty--thirdparties-list
+A list of registered ThirdParty objects
