@@ -22,3 +22,5 @@
     :defer t
     :commands (mc/cycle-forward
                mc/cycle-backward)))
+
+(defun multiple-cursors/post-init-expand-region ())
