@@ -101,7 +101,7 @@ values."
    ;; used packages but won't delete them if they become unused. `all' will
    ;; download all the packages regardless if they are used or not and packages
    ;; won't be deleted by Spacemacs. (default is `used')
-   dotspacemacs-download-packages 'used-but-keep-unused))
+   dotspacemacs-download-packages 'all))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -155,7 +155,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'random*
+   dotspacemacs-startup-banner 0
 
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
@@ -342,7 +342,16 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers '(:relative t
+			       ;; :enabled-for (org-mode)
+			       :disabled-for (compilation-mode
+					      dired-mode
+					      eshell-mode
+					      org-mode
+					      pdf-view-mode
+					      text-mode
+					      wl-summary-mode)
+			       :size-limit-kb 1000)
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
