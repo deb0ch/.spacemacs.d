@@ -1,7 +1,3 @@
-;; -*- mode: emacs-lisp -*-
-;; This file is loaded by Spacemacs at startup.
-;; It must be stored in your home directory.
-
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -349,16 +345,18 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers '(:relative t
-			       ;; :enabled-for (org-mode)
-			       :disabled-for (compilation-mode
-					      dired-mode
-					      eshell-mode
-					      org-mode
-					      pdf-view-mode
-					      text-mode
-					      wl-summary-mode)
-			       :size-limit-kb 1000)
+   dotspacemacs-line-numbers '(:relative nil
+                               :disabled-for (compilation-mode
+                                              dired-mode
+                                              doc-view-mode
+                                              eshell-mode
+                                              image-mode
+                                              markdown-mode
+                                              org-mode
+                                              pdf-view-mode
+                                              text-mode
+                                              wl-summary-mode)
+                               :size-limit-kb 1000)
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -366,7 +364,7 @@ values."
 
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode nil                                              ;; Todo: see what that is
+   dotspacemacs-smartparens-strict-mode nil    ;; Todo: see what that is
 
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
@@ -552,9 +550,10 @@ you should place your code here."
  '(evil-escape-delay 0.3)
  '(evil-escape-key-sequence "jk")
  '(evil-escape-mode t)
+ '(evil-escape-unordered-key-sequence t)
+ '(evil-want-Y-yank-to-eol nil)
  '(helm-ag-fuzzy-match t)
  '(helm-ag-use-temp-buffer t)
- '(evil-escape-unordered-key-sequence t)
  '(helm-buffer-max-length nil)
  '(helm-buffer-skip-remote-checking t)
  '(helm-buffers-fuzzy-matching t)
