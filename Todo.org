@@ -3,112 +3,122 @@
 ** completion
 *** Explore
 **** packages
-  - rtags
+- rtags
 **** header finders
-  - https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.pyi
-  - Alchemy
+- https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.pyi
 ** configs
-  - scroll: keep cursor 2 lines away from window ends
+- scroll: keep cursor 2 lines away from window ends
 ** daemon mode
-  - with-editor (or other): when in internal terminal, make command `ne` open files in current instance.
+- with-editor (or other): when in internal terminal, make command `ne` open files in current instance.
 *** set environment
-  - launch daemon at startup (integrate to systemd ?)
-  - set EDITOR and other variables in .zshrc
-  - set relevant aliases in .zshrc
+- launch daemon at startup (integrate to systemd ?)
+- set EDITOR and other variables in .zshrc
+- set relevant aliases in .zshrc
 ** legacy
-  - tty-format: display colors in log files
-  - linum-off
+- tty-format: display colors in log files
 *** keybindings
-   - org-mode ~M-<arrows>~ to navigate windows
-   - helm-projectile-ag to ~SPC p s~
+- helm-projectile-ag to ~SPC p s~
 
 
 * Contribute
-** Pull request ideas
-  - source-code-pro: automatic install at startup
-  - 'q' for quiting in all transient states
-  - greeting message in home buffer: tips, quotes and all.
+** Contribution ideas
+- Third Party Manager
+- home buffer: greeting message: tips, quotes...
+- center cursor vertically when jumping around
+- ~SPC B b~ -> ~SPC b B~
+- avy-*: case sensitivity by default ?
+- layouts state: bind ~l~ and ~w~ in both states
+- workspaces state on ~SPC w w~
+- workspace number on ~SPC w 1..9~
+- standardized helm actions
+*** jump handlers
+- add rtags to c++ layer (or wait for Quicknir's version)
+- remove ycmd from jump handlers
+**** location-stack
+- hook on jump handlers
+- go-to-next-mark
+- go-to-prev-mark
+**** specialized handlers
+- go to dwim
+- go to definition
+- go to declaration
+- go to references
+*** coding style pain point
+**** Variables to set:
+- tab-width
+- c-basic-offset
+**** editor config layer (?)
+**** dtrt-indent dotfile option
+**** coding-style layer ?
 ** PRs in progress
-  - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
+- Sudo save (https://www.emacswiki.org/emacs/SudoSave)
 ** Ongoing PRs
-  - duplicate-line-or-region
-  - spaceline: always display segments
+- FAQ learn elisp
+- linum-off
 ** Issue reports
-  - terminal: variable width unicode chars
-  - Ranger: does not clean dired buffers (layer variables do not work)
-  - Multiple cursors: inserting numbers breaks cursors (Helm-related ?)
-  - Multiple cursors: missing autoloadsi
-  - Multiple cursors: inserting newline leaves mode
-  - ycmd: strip flags that are not used for parsing (e.g. "-m" flags)
+- Ranger: does not clean dired buffers (layer variables do not work)
+- Multiple cursors: missing autoloads
+- Multiple cursors: inserting newline leaves mode
+- ycmd: strip flags that are not used for parsing (e.g. "-m" flags)
 
 
 * Packages
-** avy-char
-  - case-sensitivity
 ** compilation
-  - fix: sometimes files don't open on click
-  - make compilation buffer appear in oposite split
-  - hook compilation db build
-*** Compilation db out-of-the-box
-  - Eclipse style header search
-  - Hook compilation-mode
+- fix: sometimes files don't open on click
+*** hook =Bear= to compile command
+- opt-in option ?
+- require third party manager ?
+- require 32bit AND 64bit libear.so ?
 ** helm
-  - do not take the entire screen when on the right
-  - center window on search result
-  - preview (~C-c C-f~ follow mode to set by default)
-  - Helm-ag: colorize output as it comes (instead of when finished)
-  - Helm-M-x: add show-doc action
-  - Helm-swoop: unselect region before moving
-  - Helm-swoop: appear where stated by the relevant .spacemacs variable
-** isearch
-  - center window on search result
-** layouts (persp-mode ?)
-  - do not filter buffers as useless if they were added to the current layout
+- do not take the entire screen when on the side
+- follow mode to set by default with =helm-ag-use-temp-buffer= set to t
+- temporarily maximize window when following
+- Helm-ag: make output look like helm-swoop (followed, grouped)
+- Helm-M-x: add show-doc action
+- Helm-swoop: unselect region before moving
+- Helm-swoop: option to appear on the side
+** layouts
+- add to current layout non-useless buffers created in this layout (like magit
+  or term buffers)
+- do not filter buffers as useless if they were added to the current layout
 ** magit
-  - git blame color ids per commit
+- git blame color ids per commit
+** magit-blame
+- background color per commit
 ** multiple cursors
-  - multiple-cursors: fix RET should not leave mode
-  - multiple-cursors: add special actions transient/micro state
+- multiple-cursors: fix RET should not leave mode
+- evilify
 ** ranger
-  - major mode syntax coloring in preview buffer
+- major mode syntax coloring in preview buffer
 ** semantic
-  - stop polluting echo area
+- fix echo area conflicts
+- extract stickyfunc to use it with other backends
 ** smartparens
-  - put braces arround region right
+- brace arround region right
 ** spaceline
-  - lines count instead of buffer size
-  - always show layout name
-  - always show compilation status
-  - always show minor modes
-  - always show vcs info
-** spacemacs
-  - open homepage links with ranger / helm
+- responsive spaceline
+- lines count instead of buffer size
+*** remove `windows / unix`
+- replace with `CRLF/CR` or disable completely
+- remove useless '|'
 ** term, ansi-term, multi-term
-  - clean up `SPC '` term buffer after exiting with `C-d`
-  - fix `C-arrow` moves
-  - fix `M-backspace`
-  - fix zsh menucomplete covered by modeline
-  - fix char-mode / line-mode keybindings
+- clean up `SPC '` term buffer after exiting with `C-d`
+- fix `C-arrow` moves
+- fix `M-backspace`
+- fix zsh menucomplete covered by modeline
+- fix char-mode / line-mode keybindings
 ** which-key
-  - popup help
-
-
-
-* Coding style
-** Simply set:
-  - tab-width
-  - c-basic-offset
-  - Cf. Misc/Packages to try/editor-config
+- popup help instead of echo area
+- unclutter window number bindings
 
 
 
 * Misc
 ** Terminal emacs
-  - fix modeline (use font-info in emacs25): (http://git.savannah.gnu.org/cgit/emacs.git/tree/etc/NEWS?h=emacs-25#n1744)
+- fix modeline (use font-info in emacs25): (http://git.savannah.gnu.org/cgit/emacs.git/tree/etc/NEWS?h=emacs-25#n1744)
 ** Packages to try
-  - calfw           (https://github.com/kiwanami/emacs-calfw)
-  - compile-bookmarks
-  - guess-style
-  - fuzzy-format
-  - editor-config (https://github.com/editorconfig/editorconfig-emacs)
-  - emacs-purpose
+- calfw           (https://github.com/kiwanami/emacs-calfw)
+- compile-bookmarks
+- guess-style
+- fuzzy-format
+- editor-config (https://github.com/editorconfig/editorconfig-emacs)

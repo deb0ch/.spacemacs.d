@@ -8,8 +8,24 @@ How to choose per-system recipes ?
 ** update
 
 * Files
-** .cache/thirdparty
+** /.cache/thirdparty
 contains a list of failed installs (to not retry them automatically)
+** /thirdparty
+*** /thirdparty/recipes
+**** /thirdparty/recipes/windows
+**** /thirdparty/recipes/linux
+***** /thirdparty/recipes/linux/generic
+***** /thirdparty/recipes/linux/archlinux
+***** /thirdparty/recipes/linux/fedora
+***** /thirdparty/recipes/linux/ubuntu
+****** /thirdparty/recipes/linux/ubuntu/generic
+****** /thirdparty/recipes/linux/ubuntu/15.10
+****** /thirdparty/recipes/linux/ubuntu/16.04
+**** /thirdparty/recipes/mac
+*** /thirdparty/install/
+**** /thirdparty/install/ycmd
+**** /thirdparty/install/rtags
+**** /thirdparty/install/SourceCodePro
 
 * Functions
 ** install(thirdparty) (interactive)
