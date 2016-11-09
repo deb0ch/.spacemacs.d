@@ -81,10 +81,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(dtrt-indent
-                                      (gh :location (recipe :fetcher github
-                                                            :repo "sigma/gh.el"
-                                                            :commit "248ac04ac1ab0458453f4af52672768fcf8670ec")))
+   dotspacemacs-additional-packages '(dtrt-indent)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -351,16 +348,12 @@ values."
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
    dotspacemacs-line-numbers '(:relative nil
-                               :disabled-for (compilation-mode
-                                              dired-mode
+                               :disabled-for (dired-mode
                                               doc-view-mode
-                                              eshell-mode
-                                              image-mode
                                               markdown-mode
                                               org-mode
                                               pdf-view-mode
-                                              text-mode
-                                              wl-summary-mode)
+                                              text-mode)
                                :size-limit-kb 1000)
 
    ;; Code folding method. Possible values are `evil' and `origami'.
