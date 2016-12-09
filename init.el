@@ -496,10 +496,7 @@ you should place your code here."
   ;; Setq
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  (setq-default indent-tabs-mode t
-                tab-width 8
-                ;; Terminal better support
-                term-suppress-hard-newline t)
+  (setq-default term-suppress-hard-newline t)
 
   (setq
    ;; Line number format
