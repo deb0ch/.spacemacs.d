@@ -554,15 +554,16 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(helm-ag-fuzzy-match t)
  '(helm-ag-use-temp-buffer t)
- '(helm-buffer-max-length nil)
  '(helm-buffer-skip-remote-checking t)
  '(helm-buffers-fuzzy-matching t)
  '(helm-buffers-truncate-lines nil)
  '(org-src-tab-acts-natively t)
  '(org-support-shift-select t)
  '(ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))))
+ ; TODO make ycmd work with eldoc
 
 ;; '(flycheck-status-emoji-mode t)
+;; '(helm-buffer-max-length 28)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
