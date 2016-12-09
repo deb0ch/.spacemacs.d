@@ -422,6 +422,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
         ycmd-force-semantic-completion nil)
 
   (setq exec-path-from-shell-check-startup-files nil
+        paragraph-start "\f\\|[ \t]*$\\|[ \t]*[-+*] \\|[ \t]*[0-9]+[.)] "
         spacemacs-default-company-backends '()
         company-show-numbers t
         spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
