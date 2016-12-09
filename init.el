@@ -508,6 +508,7 @@ you should place your code here."
    ;; gnu k&r bsd whitesmith stroustrup ellemtel linux python java awk user
    c-default-style "linux"
    c-basic-offset 8
+   paragraph-start "\f\\|[ \t]*$\\|[ \t]*[-+*] \\|[ \t]*[0-9]+[.)] "
    ycmd-parse-conditions '(save mode-enabled)
    spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
                                      "\\*magit.*"
