@@ -71,6 +71,7 @@ values."
      spacemacs-layouts
      (syntax-checking :variables
                       syntax-checking-use-original-bitmaps nil)
+     themes-megapack
      version-control
      vim-empty-lines
      xkcd
