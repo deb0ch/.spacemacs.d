@@ -504,7 +504,7 @@ you should place your code here."
 
   (setq
    ;; Line number format
-   linum-format "%3d \u2502"
+   linum-format "%4d"
    ;; gnu k&r bsd whitesmith stroustrup ellemtel linux python java awk user
    c-default-style "linux"
    c-basic-offset 8
