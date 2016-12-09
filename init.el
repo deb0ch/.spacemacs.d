@@ -418,7 +418,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
   ;; ycm setup
-  (setq ycmd-server-command `("python" ,(expand-file-name "~/.emacs.d/private/YouCompleteMe/third_party/ycmd/ycmd"))
+  (setq ycmd-server-command `("python"
+                              ,(expand-file-name "~/.emacs.d/private/YouCompleteMe/third_party/ycmd/ycmd"))
         ycmd-extra-conf-whitelist '("~/Programming/*"
                                     "~/ParrotSrc/*")
         ycmd-force-semantic-completion nil)
@@ -457,13 +458,14 @@ you should place your code here."
 
   ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
   (add-hook 'prog-mode-hook #'(lambda ()
-                                (modify-syntax-entry ?_ "w")))
-  (add-hook 'emacs-lisp-mode-hook #'(lambda ()
-                                      (modify-syntax-entry ?- "w")))
-
-  (add-hook 'prog-mode-hook #'(lambda ()
+                                (modify-syntax-entry ?_ "w")
                                 (dtrt-indent-mode)
                                 (dtrt-indent-adapt)))
+
+  (add-hook 'emacs-lisp-mode-hook #'(lambda ()
+                                      (modify-syntax-entry ?- "w")
+                                      (setq indent-tabs-mode nil)))
+
   ;; indent switch cases
   (add-hook 'c-mode-common-hook
             (lambda ()
