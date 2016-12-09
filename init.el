@@ -92,6 +92,7 @@ values."
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '(auto-yasnippet
+                                    undo-tree
                                     yasnippet)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
