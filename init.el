@@ -481,7 +481,7 @@ you should place your code here."
   (global-set-key [M-down] 'windmove-down)
 
   (spacemacs/set-leader-keys
-    "SPC" #'avy-goto-char-timer
+    "SPC" #'avy-goto-char-2
     ":" #'evilnc-comment-operator)
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
