@@ -544,6 +544,16 @@ you should place your code here."
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 
+;; TODO make ycmd work with eldoc
+
+;; '(flycheck-status-emoji-mode t)
+;; '(helm-buffer-max-length 28)
+
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -564,14 +574,10 @@ you should place your code here."
  '(org-src-tab-acts-natively t)
  '(org-support-shift-select t)
  '(ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))))
- ; TODO make ycmd work with eldoc
-
-;; '(flycheck-status-emoji-mode t)
-;; '(helm-buffer-max-length 28)
-
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ggtags-highlight ((t nil))))
+)
