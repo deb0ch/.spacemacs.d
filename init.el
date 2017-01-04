@@ -419,7 +419,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; ycm setup
   (setq ycmd-server-command `("python"
-                              ,(expand-file-name "~/.emacs.d/private/YouCompleteMe/third_party/ycmd/ycmd"))
+                              ,(expand-file-name "~/.emacs.d/private/ycmd/ycmd"))
         ycmd-extra-conf-whitelist '("~/Programming/*"
                                     "~/ParrotSrc/*")
         ycmd-force-semantic-completion nil)
