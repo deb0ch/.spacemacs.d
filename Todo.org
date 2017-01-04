@@ -28,11 +28,12 @@
 - center cursor vertically when jumping around
 - avy-*: case sensitivity by default (?)
 - standardized helm actions
-- home buffer: greeting message: tips, quotes...
+- home buffer: greeting message: tips, quotes.
 *** bindings
 - layouts state: bind ~l~ and ~w~ in both states
 - workspaces state on ~SPC w w~
 - workspace number on ~SPC w 1..9~
+- smerge-mode
 *** jump handlers
 - add rtags to c++ layer (or wait for Quicknir's version)
 - remove ycmd from jump handlers
@@ -59,7 +60,7 @@
 - Multiple cursors: missing autoloads
 - Multiple cursors: inserting newline leaves mode
 - ycmd: strip flags that are not used for parsing (e.g. "-m" flags)
-
+- Spacemacs: lazy install of c-c++ layer not working on CMakeLists.txt (on master)
 
 * Packages
 ** compilation
@@ -109,10 +110,6 @@
 - fix char-mode / line-mode keybindings
 ** which-key
 - popup help instead of echo area for help docstrings
-- unclutter window number bindings
-** window-numbering
-******* TODO make window numbers work across frames
-
 
 
 * Packages to try
