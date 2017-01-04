@@ -86,7 +86,6 @@ values."
                                       (gh :location (recipe :fetcher github
                                                             :repo "sigma/gh.el"
                                                             :commit "248ac04ac1ab0458453f4af52672768fcf8670ec"))
-                                      (spaceline :location "~/.emacs.d/private/local/spaceline/")
                                       (winum :location "~/.emacs.d/private/local/winum.el"))
 
    ;; A list of packages that cannot be updated.
