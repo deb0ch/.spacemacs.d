@@ -429,11 +429,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   (setq exec-path-from-shell-check-startup-files nil
         spacemacs-default-company-backends '()
-        company-show-numbers t
-        spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
-                                          "\\*magit.*"
-                                          "\\*\\(ansi-term\\|eshell\\|shell\\|terminal.+\\)\\*"
-                                          "\\*scratch\\*"))
+        company-show-numbers t)
 )
 
 (defun dotspacemacs/user-config ()
@@ -518,10 +514,6 @@ you should place your code here."
    c-basic-offset 8
    paragraph-start "\f\\|[ \t]*$\\|[ \t]*[-+*] \\|[ \t]*[0-9]+[.)] "
    ycmd-parse-conditions '(save mode-enabled)
-   spacemacs-useful-buffers-regexp '("\\*spacemacs\\*"
-                                     "\\*magit.*"
-                                     "\\*\\(ansi-term\\|eshell\\|shell\\|terminal.+\\)\\*"
-                                     "\\*scratch\\*")
    ;; for paradox-list-p
    paradox-github-token (file-to-string "~/.spacemacs.d/github-token")
    compilation-scroll-output t
