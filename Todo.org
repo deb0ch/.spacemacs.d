@@ -1,25 +1,4 @@
 
-* My spacemacs
-** completion
-*** Explore
-**** packages
-- rtags
-**** header finders
-- https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.pyi
-** configs
-- scroll: keep cursor 2 lines away from window ends
-** daemon mode
-- with-editor (or other): when in internal terminal, make command `ne` open files in current instance.
-*** set environment
-- launch daemon at startup (integrate to systemd ?)
-- set EDITOR and other variables in .zshrc
-- set relevant aliases in .zshrc
-** legacy
-- tty-format: display colors in log files
-*** keybindings
-- helm-projectile-ag to ~SPC p s~
-
-
 * Contribute
 ** Contribution ideas
 - user option for left-aligned responsive home buffer
@@ -111,6 +90,25 @@
 ** which-key
 - popup help instead of echo area for help docstrings
 
+* My spacemacs
+** completion
+*** Explore
+**** packages
+- rtags
+**** header finders
+- https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.pyi
+** configs
+- scroll: keep cursor 2 lines away from window ends
+** daemon mode
+- with-editor (or other): when in internal terminal, make command `ne` open files in current instance.
+*** set environment
+- launch daemon at startup (integrate to systemd ?)
+- set EDITOR and other variables in .zshrc
+- set relevant aliases in .zshrc
+** legacy
+- tty-format: display colors in log files
+*** keybindings
+- helm-projectile-ag to ~SPC p s~
 
 * Packages to try
 - calfw           (https://github.com/kiwanami/emacs-calfw)
