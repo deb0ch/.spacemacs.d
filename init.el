@@ -201,7 +201,7 @@ values."
                                :size 14
                                :weight normal
                                :width normal
-                               :powerline-scale 1.2)
+                               :powerline-scale 1.3)
 
    ;; The leader key
    dotspacemacs-leader-key "SPC"
@@ -454,6 +454,7 @@ you should place your code here."
   ;; Toggles                                                                  ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+  (spacemacs/toggle-truncate-lines-on)
   (spacemacs/toggle-centered-point-globally-on)
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -560,6 +561,7 @@ This function is called at the very end of Spacemacs initialization."
  '(helm-buffers-truncate-lines nil)
  '(org-src-tab-acts-natively t)
  '(org-support-shift-select t)
+ '(truncate-lines t)
  '(ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

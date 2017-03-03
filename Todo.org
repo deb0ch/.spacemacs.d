@@ -35,6 +35,7 @@
 ** PRs in progress
 - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
 ** Issue reports
+- purpose: buffers in Conf[*] mode in 'general' instead of 'edit'
 - Ranger: does not clean dired buffers (layer variables do not work)
 - Multiple cursors: missing autoloads
 - Multiple cursors: inserting newline leaves mode
