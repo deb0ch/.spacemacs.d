@@ -1,5 +1,16 @@
 
 * Contribute
+** PRs in progress
+- Sudo save (https://www.emacswiki.org/emacs/SudoSave)
+** Issue reports
+- purpose: buffers in Conf[*] mode in 'general' instead of 'edit'
+- Ranger: does not clean dired buffers (layer variables do not work)
+- Multiple cursors: missing autoloads
+- Multiple cursors: inserting newline leaves mode
+- ycmd: strip flags that are not used for parsing (e.g. "-m" flags)
+- Spacemacs: lazy install of c-c++ layer not working on CMakeLists.txt (on master)
+** Bugs to fix
+******* TODO frame jitter
 ** Contribution ideas
 - user option for left-aligned responsive home buffer
 - layout-local buffer navigation with ~SPC b n~ and ~SPC b p~
@@ -32,15 +43,6 @@
 - c-basic-offset
 **** dtrt-indent dotfile option
 **** coding-style layer ?
-** PRs in progress
-- Sudo save (https://www.emacswiki.org/emacs/SudoSave)
-** Issue reports
-- purpose: buffers in Conf[*] mode in 'general' instead of 'edit'
-- Ranger: does not clean dired buffers (layer variables do not work)
-- Multiple cursors: missing autoloads
-- Multiple cursors: inserting newline leaves mode
-- ycmd: strip flags that are not used for parsing (e.g. "-m" flags)
-- Spacemacs: lazy install of c-c++ layer not working on CMakeLists.txt (on master)
 
 * Packages
 ** compilation
@@ -49,8 +51,11 @@
 - opt-in option ?
 - requires third party manager ?
 - requires 32bit AND 64bit libear.so ?
+** emacs-ycmd
+- allow for languages not supported by ycmd to use the
+  =/filter_and_sort_candidates= request to get fuzzy-matching and ycmd ranking.
+  See http://micbou.github.io/ycmd/.
 ** helm
-******* TODO adjust size to contents when popping on the side
 - follow mode to set by default with =helm-ag-use-temp-buffer= set to t
 - temporarily maximize window when following
 - Helm-ag: make output look like helm-swoop (followed, grouped)
@@ -58,6 +63,7 @@
 - Helm-swoop: unselect region before moving
 - Helm-swoop: option to appear on the side
 - helm-mini: fix truncated buffer names
+******* TODO adjust size to contents when popping on the side
 ** layouts
 - add to current layout non-useless buffers created in this layout (like magit
   or term buffers)
@@ -77,8 +83,20 @@
 ** smartparens
 - brace arround region right
 ** spaceline
-- responsive spaceline
 - lines count instead of buffer size
+******* TODO responsive spaceline
+Give each segment a priority.
+0 is the highest priority.
+If no priority given, set it to the lowest.
+Only recompute mode-line on window width change.
+Either use window-change-hook or check for window width change on every
+mode-line evaluation.
+******* TODO ycmd status
+Show in the spaceline ycmd's status for current buffer and, more importantly, a
+colored indication about finding the file in the compilation database:
+green  -> found
+orange -> replacement file found (show file pathname when mouse hovering)
+red    -> db not found
 *** remove `windows / unix`
 - replace with `CRLF/CR` or disable completely
 - remove useless '|'
