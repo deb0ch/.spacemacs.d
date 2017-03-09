@@ -64,6 +64,8 @@ values."
              python-enable-yapf-format-on-save t
              python-sort-imports-on-save t)
      ranger
+     (semantic :variables
+               :enabled-for elisp)
      (shell :variables
             shell-default-height 50
             shell-default-position 'bottom)
