@@ -463,15 +463,20 @@ you should place your code here."
   ;; Hooks                                                                    ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
-  (add-hook 'prog-mode-hook #'(lambda ()
-                                (modify-syntax-entry ?_ "w")
-                                (dtrt-indent-mode)
-                                (dtrt-indent-adapt)))
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
+              (modify-syntax-entry ?_ "w")
 
-  (add-hook 'emacs-lisp-mode-hook #'(lambda ()
-                                      (modify-syntax-entry ?- "w")
-                                      (setq indent-tabs-mode nil)))
+              (dtrt-indent-mode)
+              (dtrt-indent-adapt)
+
+              (highlight-parentheses-mode -1)))
+
+  (add-hook 'emacs-lisp-mode-hook
+            (lambda ()
+              (modify-syntax-entry ?- "w")
+              (setq indent-tabs-mode nil)))
 
   ;; indent switch cases
   (add-hook 'c-mode-common-hook
@@ -499,6 +504,7 @@ you should place your code here."
 
   (delete-selection-mode t)	;; Remplace le texte selectionne si on tape
   (global-hl-line-mode -1)	;; Do not highlight current line
+  (global-highlight-parentheses-mode -1)
 
   (with-eval-after-load 'magit
     (add-to-list 'magit-log-arguments "--color"))
