@@ -570,6 +570,9 @@ This function is called at the very end of Spacemacs initialization."
  '(helm-buffers-truncate-lines nil)
  '(org-src-tab-acts-natively t)
  '(org-support-shift-select t)
+ '(ranger-cleanup-eagerly t)
+ '(ranger-override-dired (quote ranger))
+ '(ranger-override-dired-mode t)
  '(truncate-lines t)
  '(ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))))
 (custom-set-faces
