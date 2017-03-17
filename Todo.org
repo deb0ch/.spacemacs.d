@@ -4,7 +4,6 @@
 - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
 ** Issue reports
 - purpose: buffers in Conf[*] mode in 'general' instead of 'edit'
-- Ranger: does not clean dired buffers (layer variables do not work)
 - Multiple cursors: missing autoloads
 - Multiple cursors: inserting newline leaves mode
 - ycmd: strip flags that are not used for parsing (e.g. "-m" flags)
@@ -12,8 +11,6 @@
 ** Bugs to fix
 ******* TODO frame jitter
 ** Contribution ideas
-- user option for left-aligned responsive home buffer
-- layout-local buffer navigation with ~SPC b n~ and ~SPC b p~
 - Third Party Manager
 - center cursor vertically when jumping around
 - avy-*: case sensitivity by default (?)
@@ -38,19 +35,13 @@
 - go to declaration
 - go to references
 *** coding style pain point
-**** Variables to set:
-- tab-width
-- c-basic-offset
 **** dtrt-indent dotfile option
 **** coding-style layer ?
 
 * Packages
 ** compilation
 - fix: sometimes files don't open on click
-*** hook =Bear= to compile command
-- opt-in option ?
-- requires third party manager ?
-- requires 32bit AND 64bit libear.so ?
+- hook =Bear= to compile command
 ** emacs-ycmd
 - allow for languages not supported by ycmd to use the
   =/filter_and_sort_candidates= request to get fuzzy-matching and ycmd ranking.
@@ -74,7 +65,7 @@
 - background color per commit
 ** multiple cursors
 - multiple-cursors: fix RET should not leave mode
-- evilify
+- evilify (see
 ** ranger
 - major mode syntax coloring in preview buffer
 ** semantic
@@ -84,13 +75,6 @@
 - brace arround region right
 ** spaceline
 - lines count instead of buffer size
-******* TODO responsive spaceline
-Give each segment a priority.
-0 is the highest priority.
-If no priority given, set it to the lowest.
-Only recompute mode-line on window width change.
-Either use window-change-hook or check for window width change on every
-mode-line evaluation.
 ******* TODO ycmd status
 Show in the spaceline ycmd's status for current buffer and, more importantly, a
 colored indication about finding the file in the compilation database:
