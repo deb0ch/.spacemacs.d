@@ -8,8 +8,6 @@
 - Multiple cursors: inserting newline leaves mode
 - ycmd: strip flags that are not used for parsing (e.g. "-m" flags)
 - Spacemacs: lazy install of c-c++ layer not working on CMakeLists.txt (on master)
-** Bugs to fix
-******* TODO frame jitter
 ** Contribution ideas
 - Third Party Manager
 - center cursor vertically when jumping around
@@ -36,7 +34,6 @@
 - go to references
 *** coding style pain point
 **** dtrt-indent dotfile option
-**** coding-style layer ?
 
 * Packages
 ** compilation
