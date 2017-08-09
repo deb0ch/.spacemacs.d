@@ -61,7 +61,7 @@ values."
      org
      pdf-tools
      (python :variables
-             python-enable-yapf-format-on-save t
+             python-enable-yapf-format-on-save nil
              python-sort-imports-on-save t)
      ranger
      (semantic :variables
