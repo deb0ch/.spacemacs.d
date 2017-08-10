@@ -514,6 +514,9 @@ you should place your code here."
 
   (setq-default term-suppress-hard-newline t)
 
+  (push '("\\.ino\\'" . c++-mode) auto-mode-alist)
+  (push '("\\.yapf\\'" . conf-mode) auto-mode-alist)
+
   (setq
    ;; Line number format
    linum-format "%4d"
