@@ -91,7 +91,7 @@ values."
                            :commit "248ac04ac1ab0458453f4af52672768fcf8670ec"))
      vdiff
      (winum :location (recipe :fetcher file
-                              :path "~/.emacs.d/private/local/winum.el")))
+                              :path "~/.emacs.d/private/local/emacs-winum")))
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
