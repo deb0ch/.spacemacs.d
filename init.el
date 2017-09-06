@@ -45,13 +45,6 @@ values."
      common-lisp
      csv
      emacs-lisp
-     (erc :packages (not erc-social-graph)
-          :variables
-          erc-server-list '(("jinan.parrot.biz"
-                             :ssl t
-                             :port "7000"
-                             :nick "ThomdB"
-                             :full-name "Thomas de Beauchene")))
      git
      github
      gtags
