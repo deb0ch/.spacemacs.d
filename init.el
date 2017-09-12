@@ -501,6 +501,13 @@ you should place your code here."
   (with-eval-after-load 'magit
     (add-to-list 'magit-log-arguments "--color"))
 
+  ;; (with-eval-after-load 'winum
+  ;;   (defun treemacs--window-number-zero ()
+  ;;     (when (s-equals? (buffer-name) "*scratch*") 10))
+
+  ;;   (when (boundp 'winum-assign-func)
+  ;;     (setq winum-assign-func #'treemacs--window-number-zero)))
+
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Variables                                                                ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
