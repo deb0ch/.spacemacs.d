@@ -409,7 +409,8 @@ values."
       (with-temp-buffer
         (insert-file-contents filename)
         (buffer-string))
-    (message "Can't read user file: %s, make sure that it exists and contains the correct value.")))
+    (message "Can't read user file: %s, make sure that it exists and contains the correct value." filename)
+    ""))
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
