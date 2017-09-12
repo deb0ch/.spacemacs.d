@@ -438,11 +438,7 @@ you should place your code here."
   ;; Local packages                                                           ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  (add-to-list 'load-path "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el")
-  (autoload 'pdir-search
-    "/home/tdebeauchene/tmp/lassieur/parrot/pdir.el"
-    "Search for people in the Parrot directory."
-    t)
+  ; Local non-melpa packages setup goes here
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Toggles                                                                  ;;
