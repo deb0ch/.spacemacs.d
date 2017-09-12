@@ -44,6 +44,7 @@ values."
              colors-enable-nyan-cat-progress-bar t)
      common-lisp
      csv
+     docker
      emacs-lisp
      git
      github
