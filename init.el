@@ -566,8 +566,8 @@ This function is called at the very end of Spacemacs initialization."
  '(org-src-tab-acts-natively t)
  '(org-support-shift-select t)
  '(ranger-cleanup-eagerly t)
- '(ranger-override-dired (quote ranger))
- '(ranger-override-dired-mode t)
+ '(ranger-override-dired nil)
+ '(ranger-override-dired-mode nil)
  '(truncate-lines t)
  '(ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))))
 (custom-set-faces
