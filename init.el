@@ -78,13 +78,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
-   '(dtrt-indent
-     (gh :location (recipe :fetcher github
-                           :repo "sigma/gh.el"
-                           :commit "248ac04ac1ab0458453f4af52672768fcf8670ec"))
-     vdiff
-     (winum :location (recipe :fetcher file
-                              :path "~/.emacs.d/private/local/emacs-winum")))
+   '(dtrt-indent vdiff)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
