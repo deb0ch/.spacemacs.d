@@ -41,7 +41,7 @@ values."
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support nil)
      (colors :variables
-             colors-enable-nyan-cat-progress-bar nil)
+             colors-enable-nyan-cat-progress-bar t)
      common-lisp
      csv
      emacs-lisp
