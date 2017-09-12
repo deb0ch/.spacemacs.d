@@ -512,7 +512,7 @@ you should place your code here."
 
   (setq
    ;; Line number format
-   linum-format "%4d"
+   linum-format (if (display-graphic-p) "%4d" "%4d ")
    ;; gnu k&r bsd whitesmith stroustrup ellemtel linux python java awk user
    c-default-style "linux"
    c-basic-offset 8
