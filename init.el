@@ -610,6 +610,7 @@ This function is called at the very end of Spacemacs initialization."
  '(helm-buffers-truncate-lines nil)
  '(org-src-tab-acts-natively t)
  '(org-support-shift-select t)
+ '(powerline-image-apple-rgb t)
  '(ranger-cleanup-eagerly t)
  '(ranger-override-dired nil)
  '(ranger-override-dired-mode nil)
