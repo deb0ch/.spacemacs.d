@@ -574,7 +574,29 @@ before packages are loaded."
                                          company-keywords)
                                         company-files
                                         company-dabbrev)
+   avy-case-fold-search nil
+   ccm-vpos-init (quote (round (window-text-height) 2))
+   eldoc-print-after-edit t
+   evil-escape-delay 0.3
+   evil-escape-key-sequence "jk"
+   evil-escape-mode t
+   evil-escape-unordered-key-sequence t
+   evil-want-Y-yank-to-eol nil
+   helm-ag-fuzzy-match t
+   helm-ag-use-temp-buffer t
+   helm-buffer-skip-remote-checking t
+   helm-buffers-fuzzy-matching t
+   helm-buffers-truncate-lines nil
+   org-src-tab-acts-natively t
+   org-support-shift-select t
+   powerline-image-apple-rgb t
+   ranger-cleanup-eagerly t
+   ranger-override-dired nil
+   ranger-override-dired-mode nil
+   truncate-lines t
+   ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))
  )
+  (face-spec-set 'ggtags-highlight '((t nil)))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -595,27 +617,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(avy-case-fold-search nil)
- '(ccm-vpos-init (quote (round (window-text-height) 2)))
- '(eldoc-print-after-edit t)
- '(evil-escape-delay 0.3)
- '(evil-escape-key-sequence "jk")
- '(evil-escape-mode t)
- '(evil-escape-unordered-key-sequence t)
- '(evil-want-Y-yank-to-eol nil)
- '(helm-ag-fuzzy-match t)
- '(helm-ag-use-temp-buffer t)
- '(helm-buffer-skip-remote-checking t)
- '(helm-buffers-fuzzy-matching t)
- '(helm-buffers-truncate-lines nil)
- '(org-src-tab-acts-natively t)
- '(org-support-shift-select t)
- '(powerline-image-apple-rgb t)
- '(ranger-cleanup-eagerly t)
- '(ranger-override-dired nil)
- '(ranger-override-dired-mode nil)
- '(truncate-lines t)
- '(ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))))
+ )
  '(package-selected-packages
    (quote
     (spaceline zenburn-theme zen-and-art-theme yapfify xterm-color xkcd ws-butler winum white-sand-theme which-key web-mode web-beautify volatile-highlights vdiff uuidgen use-package unfill underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit symon sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection stickyfunc-enhance srefactor spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle slime-company slim-mode shell-pop seti-theme scss-mode sass-mode reverse-theme restart-emacs rebecca-theme realgud ranger rainbow-mode rainbow-identifiers rainbow-delimiters railscasts-theme pyvenv pytest pyenv-mode py-isort purple-haze-theme pug-mode professional-theme powerline popwin planet-theme pip-requirements phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pdf-tools pcre2el password-generator paradox orgit organic-green-theme org-projectile org-present org-pomodoro org-download org-bullets org-brain open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme neotree naquadah-theme mwim mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme material-theme markdown-toc majapahit-theme magit-gitflow magit-gh-pulls madhat2r-theme lush-theme lorem-ipsum livid-mode live-py-mode linum-relative link-hint light-soap-theme less-css-mode js2-refactor js-doc jbeans-theme jazz-theme ir-black-theme insert-shebang inkpot-theme info+ indent-guide impatient-mode hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gnuplot github-search github-clone gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md ggtags gandalf-theme fuzzy flycheck-ycmd flycheck-pos-tip flycheck-bashate flx-ido flatui-theme flatland-theme fish-mode fill-column-indicator farmhouse-theme fancy-battery eyebrowse expand-region exotica-theme exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav editorconfig dumb-jump dtrt-indent dracula-theme dockerfile-mode docker django-theme disaster diff-hl define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cython-mode cyberpunk-theme csv-mode company-ycmd company-web company-tern company-statistics company-shell company-c-headers company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized color-identifiers-mode coffee-mode cmake-mode cmake-ide clues-theme clean-aindent-mode clang-format cherry-blossom-theme busybee-theme bubbleberry-theme browse-at-remote birds-of-paradise-plus-theme badwolf-theme auto-highlight-symbol auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
@@ -624,5 +626,5 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ggtags-highlight ((t nil))))
+ )
 )
