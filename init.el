@@ -556,17 +556,33 @@ before packages are loaded."
   (push '("\\.yapf\\'" . conf-mode) auto-mode-alist)
 
   (setq
-   ;; Line number format
-   linum-format (if (display-graphic-p) "%4d" "%4d ")
+   avy-case-fold-search nil
+   c-basic-offset 8
    ;; gnu k&r bsd whitesmith stroustrup ellemtel linux python java awk user
    c-default-style "linux"
-   c-basic-offset 8
-   paragraph-start "\f\\|[ \t]*$\\|[ \t]*[-+*] \\|[ \t]*[0-9]+[.)] "
-   ycmd-parse-conditions '(save mode-enabled)
-   ;; for paradox-list-p
-   paradox-github-token (file-to-string "~/.spacemacs.d/github-token")
+   ccm-vpos-init (quote (round (window-text-height) 2))
    compilation-scroll-output t
+   eldoc-print-after-edit t
+   evil-escape-delay 0.3
+   evil-escape-key-sequence "jk"
+   evil-escape-mode t
+   evil-escape-unordered-key-sequence t
+   evil-want-Y-yank-to-eol nil
    expand-region-fast-keys-enabled nil
+   helm-ag-fuzzy-match t
+   helm-ag-use-temp-buffer t
+   helm-buffer-skip-remote-checking t
+   helm-buffers-fuzzy-matching t
+   helm-buffers-truncate-lines nil
+   linum-format (if (display-graphic-p) "%4d" "%4d ")
+   org-src-tab-acts-natively t
+   org-support-shift-select t
+   paradox-github-token (file-to-string "~/.spacemacs.d/github-token")
+   paragraph-start "\f\\|[ \t]*$\\|[ \t]*[-+*] \\|[ \t]*[0-9]+[.)] "
+   powerline-image-apple-rgb t
+   ranger-cleanup-eagerly t
+   ranger-override-dired nil
+   ranger-override-dired-mode nil
    spaceline-always-show-segments t
    spacemacs-default-company-backends '((company-dabbrev-code
                                          company-gtags
@@ -574,27 +590,9 @@ before packages are loaded."
                                          company-keywords)
                                         company-files
                                         company-dabbrev)
-   avy-case-fold-search nil
-   ccm-vpos-init (quote (round (window-text-height) 2))
-   eldoc-print-after-edit t
-   evil-escape-delay 0.3
-   evil-escape-key-sequence "jk"
-   evil-escape-mode t
-   evil-escape-unordered-key-sequence t
-   evil-want-Y-yank-to-eol nil
-   helm-ag-fuzzy-match t
-   helm-ag-use-temp-buffer t
-   helm-buffer-skip-remote-checking t
-   helm-buffers-fuzzy-matching t
-   helm-buffers-truncate-lines nil
-   org-src-tab-acts-natively t
-   org-support-shift-select t
-   powerline-image-apple-rgb t
-   ranger-cleanup-eagerly t
-   ranger-override-dired nil
-   ranger-override-dired-mode nil
    truncate-lines t
    ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))
+   ycmd-parse-conditions '(save mode-enabled)
  )
   (face-spec-set 'ggtags-highlight '((t nil)))
 )
