@@ -69,6 +69,7 @@ This function should only modify configuration layer settings."
      (syntax-checking :variables
                       syntax-checking-use-original-bitmaps nil)
      themes-megapack
+     treemacs
      version-control
      vim-empty-lines
      xkcd
