@@ -597,6 +597,7 @@ before packages are loaded."
    helm-buffer-skip-remote-checking t
    helm-buffers-fuzzy-matching t
    helm-buffers-truncate-lines nil
+   js-indent-level 4
    linum-format (if (display-graphic-p) "%4d" "%4d ")
    org-src-tab-acts-natively t
    org-support-shift-select t
