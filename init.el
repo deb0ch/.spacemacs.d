@@ -527,9 +527,7 @@ before packages are loaded."
               (modify-syntax-entry ?_ "w")
 
               (dtrt-indent-mode)
-              (dtrt-indent-adapt)
-
-              (highlight-parentheses-mode -1)))
+              (dtrt-indent-adapt)))
 
   (add-hook 'emacs-lisp-mode-hook
             (lambda ()
