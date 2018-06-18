@@ -574,8 +574,9 @@ before packages are loaded."
 
   (setq-default term-suppress-hard-newline t)
 
-  (push '("\\.ino\\'" . c++-mode) auto-mode-alist)
-  (push '("\\.yapf\\'" . conf-mode) auto-mode-alist)
+  (push '("\\.ino\\'"      . c++-mode)        auto-mode-alist)
+  (push '("\\.jsx\\'"      . javascript-mode) auto-mode-alist)
+  (push '("\\.yapf\\'"     . conf-mode)       auto-mode-alist)
   (push '("\\.graphqls\\'" . conf-mode)       auto-mode-alist)
 
   (setq
