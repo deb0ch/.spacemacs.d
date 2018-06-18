@@ -593,6 +593,7 @@ before packages are loaded."
    evil-escape-unordered-key-sequence t
    evil-want-Y-yank-to-eol nil
    expand-region-fast-keys-enabled nil
+   git-gutter+-diff-options '("HEAD")
    helm-ag-fuzzy-match t
    helm-ag-use-temp-buffer t
    helm-buffer-skip-remote-checking t
