@@ -82,6 +82,7 @@ This function should only modify configuration layer settings."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
    '(dtrt-indent
+     graphql-mode
      powerline
      (spaceline :location "~/.emacs.d/private/local/spaceline/")
      vdiff)
@@ -575,6 +576,7 @@ before packages are loaded."
 
   (push '("\\.ino\\'" . c++-mode) auto-mode-alist)
   (push '("\\.yapf\\'" . conf-mode) auto-mode-alist)
+  (push '("\\.graphqls\\'" . conf-mode)       auto-mode-alist)
 
   (setq
    avy-case-fold-search nil
