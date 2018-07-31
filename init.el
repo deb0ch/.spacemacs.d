@@ -577,10 +577,11 @@ before packages are loaded."
 
   (setq-default term-suppress-hard-newline t)
 
-  (push '("\\.ino\\'"      . c++-mode)        auto-mode-alist)
-  (push '("\\.jsx\\'"      . javascript-mode) auto-mode-alist)
-  (push '("\\.yapf\\'"     . conf-mode)       auto-mode-alist)
-  (push '("\\.graphqls\\'" . conf-mode)       auto-mode-alist)
+  (push '("\\.ino\\'"      . c++-mode)  auto-mode-alist)
+  (push '("\\.js\\'"       . js2-mode)  auto-mode-alist)
+  (push '("\\.jsx\\'"      . js2-mode)  auto-mode-alist)
+  (push '("\\.yapf\\'"     . conf-mode) auto-mode-alist)
+  (push '("\\.graphqls\\'" . conf-mode) auto-mode-alist)
 
   (setq
    avy-case-fold-search nil
