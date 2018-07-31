@@ -273,7 +273,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-ex-substitute-global nil
 
    ;; Name of the default layout (default "Default")
-   dotspacemacs-default-layout-name "Default"
+   dotspacemacs-default-layout-name "default"
 
    ;; If non-nil the default layout name is displayed in the mode-line.
    ;; (default nil)
