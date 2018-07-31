@@ -52,6 +52,7 @@ This function should only modify configuration layer settings."
      github
      gtags
      helm
+     javascript
      markdown
      multiple-cursors
      org
@@ -60,6 +61,7 @@ This function should only modify configuration layer settings."
              python-enable-yapf-format-on-save nil
              python-sort-imports-on-save t)
      ranger
+     react
      semantic
      (shell :variables
             shell-default-height 50
@@ -68,6 +70,7 @@ This function should only modify configuration layer settings."
      spacemacs-layouts
      (syntax-checking :variables
                       syntax-checking-use-original-bitmaps nil)
+     tern
      themes-megapack
      treemacs
      version-control
