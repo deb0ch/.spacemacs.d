@@ -3,12 +3,12 @@
 ** PRs in progress
 - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
 ** Issue reports
-- purpose: buffers in Conf[*] mode in 'general' instead of 'edit'
 - Multiple cursors: missing autoloads
 - Multiple cursors: inserting newline leaves mode
 - ycmd: strip flags that are not used for parsing (e.g. "-m" flags)
 - Spacemacs: lazy install of c-c++ layer not working on CMakeLists.txt (on master)
 ** Contribution ideas
+- dotspacemacs: truncate-lines on by default
 - Third Party Manager
 - center cursor vertically when jumping around
 - avy-*: case sensitivity by default (?)
