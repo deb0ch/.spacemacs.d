@@ -625,7 +625,7 @@ before packages are loaded."
    helm-buffers-fuzzy-matching t
    helm-buffers-truncate-lines nil
    js-indent-level 4
-   linum-format (if (display-graphic-p) "%4d" "%4d ")
+   linum-format 'dynamic
    org-src-tab-acts-natively t
    org-support-shift-select t
    paradox-github-token (file-to-string "~/.spacemacs.d/github-token")
