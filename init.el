@@ -512,6 +512,9 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq exec-path-from-shell-check-startup-files nil
         spacemacs-default-company-backends '()
         company-show-numbers t)
+
+  (setq-default truncate-lines t)
+
   )
 
 (defun dotspacemacs/user-load ()
@@ -555,9 +558,7 @@ before packages are loaded."
               (modify-syntax-entry ?_ "w")
 
               (dtrt-indent-mode)
-              (dtrt-indent-adapt)
-
-              (spacemacs/toggle-truncate-lines-on)))
+              (dtrt-indent-adapt)))
 
   (add-hook 'emacs-lisp-mode-hook
             (lambda ()
