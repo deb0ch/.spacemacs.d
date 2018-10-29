@@ -538,7 +538,6 @@ before packages are loaded."
   ;; Toggles                                                                  ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  (spacemacs/toggle-truncate-lines-on)
   (spacemacs/toggle-centered-point-globally-on)
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -551,7 +550,9 @@ before packages are loaded."
               (modify-syntax-entry ?_ "w")
 
               (dtrt-indent-mode)
-              (dtrt-indent-adapt)))
+              (dtrt-indent-adapt)
+
+              (spacemacs/toggle-truncate-lines-on)))
 
   (add-hook 'emacs-lisp-mode-hook
             (lambda ()
