@@ -587,9 +587,6 @@ before packages are loaded."
   (global-hl-line-mode -1)	;; Do not highlight current line
   (global-highlight-parentheses-mode -1)
 
-  (with-eval-after-load 'magit
-    (add-to-list 'magit-log-arguments "--color"))
-
   ;; (with-eval-after-load 'winum
   ;;   (defun treemacs--window-number-zero ()
   ;;     (when (s-equals? (buffer-name) "*scratch*") 10))
