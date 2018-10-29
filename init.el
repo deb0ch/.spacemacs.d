@@ -616,6 +616,9 @@ before packages are loaded."
    evil-escape-key-sequence "jk"
    evil-escape-mode t
    evil-escape-unordered-key-sequence t
+   evil-goggles-pulse t
+   evil-goggles-async-duration 0.4
+   evil-goggles-blocking-duration 0.2
    evil-want-Y-yank-to-eol nil
    expand-region-fast-keys-enabled nil
    git-gutter+-diff-options '("HEAD")
