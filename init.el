@@ -45,21 +45,28 @@ This function should only modify configuration layer settings."
      (colors :variables
              colors-enable-nyan-cat-progress-bar t)
      common-lisp
+     ;chrome
      csv
+     copy-as-format
      docker
      emacs-lisp
+     emoji
      git
-     github
      gtags
      (helm :variables
            helm-resize t
            helm-no-header t
            helm-position 'bottom
            helm-fuzzy 'always)
-     javascript
+     html
+     (javascript :variables
+                 node-add-modules-path t)
+     json
+     ;; lsp
      markdown
      multiple-cursors
      org
+     osx
      pdf
      (python :variables
              python-enable-yapf-format-on-save nil
@@ -76,9 +83,12 @@ This function should only modify configuration layer settings."
                       syntax-checking-use-original-bitmaps nil)
      tern
      themes-megapack
-     treemacs
+     (treemacs :variables
+               treemacs-use-collapsed-directories 0)
      version-control
      vim-empty-lines
+     ;wakatime
+     ;web-beautify
      xkcd
      ycmd
     )
