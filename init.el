@@ -544,6 +544,11 @@ before packages are loaded."
   ;; Hooks                                                                    ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+  (add-hook 'js2-mode-hook
+            (lambda ()
+              (setq fill-column 100
+                    js-switch-indent-offset 2)))
+
   (add-hook 'prog-mode-hook
             (lambda ()
               ;; https://www.emacswiki.org/emacs/EmacsSyntaxTable
