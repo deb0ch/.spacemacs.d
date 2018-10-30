@@ -3,17 +3,13 @@
 ** PRs in progress
 - Sudo save (https://www.emacswiki.org/emacs/SudoSave)
 ** Issue reports
-- Multiple cursors: missing autoloads
-- Multiple cursors: inserting newline leaves mode
-- ycmd: strip flags that are not used for parsing (e.g. "-m" flags)
-- Spacemacs: lazy install of c-c++ layer not working on CMakeLists.txt (on master)
 ** Contribution ideas
-- dotspacemacs: truncate-lines on by default
 - Third Party Manager
 - center cursor vertically when jumping around
 - avy-*: case sensitivity by default (?)
-- standardized helm actions
-- home buffer: greeting message: tips, quotes.
+- standardize helm actions
+- home buffer: allow movement only between buttons
+- dtrt-indent as a dotfile option
 *** bindings
 - layouts state: bind ~l~ and ~w~ in both states
 - workspaces state on ~SPC w w~
@@ -32,13 +28,11 @@
 - go to definition
 - go to declaration
 - go to references
-*** coding style pain point
-**** dtrt-indent dotfile option
 
 * Packages
 ** compilation
-- fix: sometimes files don't open on click
-- hook =Bear= to compile command
+- fix files don't open on click
+- hook =Bear= to compile command (?)
 ** emacs-ycmd
 - allow for languages not supported by ycmd to use the
   =/filter_and_sort_candidates= request to get fuzzy-matching and ycmd ranking.
@@ -51,28 +45,21 @@
 - Helm-swoop: unselect region before moving
 - Helm-swoop: option to appear on the side
 - helm-mini: fix truncated buffer names
-******* TODO adjust size to contents when popping on the side
-** layouts
-- add to current layout non-useless buffers created in this layout (like magit
-  or term buffers)
-- do not filter buffers as useless if they were added to the current layout
-** magit
-- git blame color ids per commit
+- adjust size to contents when popping on the side
 ** magit-blame
-- background color per commit
+- background color per commit and commit age
 ** multiple cursors
-- multiple-cursors: fix RET should not leave mode
-- evilify (see
+- cursors: missing autoloads
+- fix RET should not leave mode
+- evilify
 ** ranger
 - major mode syntax coloring in preview buffer
 ** semantic
 - fix echo area conflicts
 - extract stickyfunc to use it with other backends
-** smartparens
-- brace arround region right
 ** spaceline
 - lines count instead of buffer size
-******* TODO ycmd status
+- ycmd status
 Show in the spaceline ycmd's status for current buffer and, more importantly, a
 colored indication about finding the file in the compilation database:
 green  -> found
@@ -89,6 +76,8 @@ red    -> db not found
 - fix char-mode / line-mode keybindings
 ** which-key
 - popup help instead of echo area for help docstrings
+** ycmd
+- strip flags that are not used for parsing (e.g. "-m" flags)
 
 * My spacemacs
 ** completion
@@ -97,22 +86,11 @@ red    -> db not found
 - rtags
 **** header finders
 - https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.pyi
-** configs
-- scroll: keep cursor 2 lines away from window ends
-** daemon mode
-- with-editor (or other): when in internal terminal, make command `ne` open files in current instance.
-*** set environment
-- launch daemon at startup (integrate to systemd ?)
-- set EDITOR and other variables in .zshrc
-- set relevant aliases in .zshrc
 ** legacy
 - tty-format: display colors in log files
-*** keybindings
-- helm-projectile-ag to ~SPC p s~
 
 * Packages to try
 - calfw           (https://github.com/kiwanami/emacs-calfw)
 - compile-bookmarks
 - guess-style
 - fuzzy-format
-- editor-config (https://github.com/editorconfig/editorconfig-emacs)
