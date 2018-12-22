@@ -606,7 +606,10 @@ before packages are loaded."
 
   (push '("\\.ino\\'"      . c++-mode)  auto-mode-alist)
   (push '("\\.yapf\\'"     . conf-mode) auto-mode-alist)
-  (push '("\\.graphqls\\'" . conf-mode) auto-mode-alist)
+  (push '("\\.graphqls\\'" . graphql-mode) auto-mode-alist)
+  (push '("\\.graphql\\'"  . graphql-mode) auto-mode-alist)
+  (push '("\\.gql\\'"      . graphql-mode) auto-mode-alist)
+  (push '("\\.launch\\'"   . xml-mode) auto-mode-alist)
 
   (setq
    avy-case-fold-search nil
