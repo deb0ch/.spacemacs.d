@@ -77,6 +77,7 @@ This function should only modify configuration layer settings."
      react
      semantic
      (shell :variables
+            shell-default-shell 'vterm
             shell-default-height 50
             shell-default-position 'bottom)
      shell-scripts
@@ -106,6 +107,7 @@ This function should only modify configuration layer settings."
      powerline
      (spaceline :location "~/.emacs.d/private/local/spaceline/")
      vdiff)
+     (vterm :location "~/.emacs.d/private/local/emacs-libvterm/")
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
