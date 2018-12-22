@@ -42,6 +42,7 @@ This function should only modify configuration layer settings."
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-enable-clang-support nil)
+     cmake
      (colors :variables
              colors-enable-nyan-cat-progress-bar t)
      common-lisp
@@ -65,6 +66,7 @@ This function should only modify configuration layer settings."
      ;; lsp
      markdown
      multiple-cursors
+     my-multiple-cursors
      org
      osx
      pdf
@@ -85,6 +87,7 @@ This function should only modify configuration layer settings."
      themes-megapack
      (treemacs :variables
                treemacs-use-collapsed-directories 0)
+     typescript
      version-control
      vim-empty-lines
      ;wakatime
