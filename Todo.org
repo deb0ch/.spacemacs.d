@@ -94,3 +94,7 @@ red    -> db not found
 - compile-bookmarks
 - guess-style
 - fuzzy-format
+- https://github.com/flycheck/flycheck-inline
+- https://github.com/redguardtoo/evil-matchit
+- https://github.com/abo-abo/lpy - Minimal Python IDE for GNU Emacs
+- https://github.com/jojojames/smart-jump
