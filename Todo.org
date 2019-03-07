@@ -1,91 +1,27 @@
 
-* Contribute
-** PRs in progress
-- Sudo save (https://www.emacswiki.org/emacs/SudoSave)
-** Issue reports
-** Contribution ideas
-- Third Party Manager
-- center cursor vertically when jumping around
-- avy-*: case sensitivity by default (?)
-- standardize helm actions
-- home buffer: allow movement only between buttons
+* Backlog
+** multiple cursors
+- fix missing autoloads
+- fix RET should not leave mode
+- evilify
+** magit-blame
+- background color per commit and commit age
+** spaceline
+- lines count instead of buffer size
+*** refactor `windows / unix` segment
+replace with `CRLF/CR` or disable completely and remove useless '|'
+** Misc
+- fix native line numbers random margin width
 - dtrt-indent as a dotfile option
-*** bindings
+- smerge-mode: add bindings
+- home buffer: allow movement only between buttons
+*** layouts / workspaces rework
+- rename layouts <-> workspaces
 - layouts state: bind ~l~ and ~w~ in both states
 - workspaces state on ~SPC w w~
 - workspace number on ~SPC w 1..9~
-- smerge-mode
-*** jump handlers
-- add rtags to c++ layer (or wait for Quicknir's version)
-- remove ycmd from jump handlers
-**** location-stack
-***** check if not already implemented
-- hook on jump handlers
-- go-to-next-mark
-- go-to-prev-mark
-**** specialized handlers
-- go to dwim
-- go to definition
-- go to declaration
-- go to references
-
-* Packages
-** compilation
-- fix files don't open on click
-- hook =Bear= to compile command (?)
-** emacs-ycmd
-- allow for languages not supported by ycmd to use the
-  =/filter_and_sort_candidates= request to get fuzzy-matching and ycmd ranking.
-  See http://micbou.github.io/ycmd/.
-** helm
-- follow mode to set by default with =helm-ag-use-temp-buffer= set to t
-- temporarily maximize window when following
-- Helm-ag: make output look like helm-swoop (followed, grouped)
-- Helm-M-x: add show-doc action
-- Helm-swoop: unselect region before moving
-- Helm-swoop: option to appear on the side
-- helm-mini: fix truncated buffer names
-- adjust size to contents when popping on the side
-** magit-blame
-- background color per commit and commit age
-** multiple cursors
-- cursors: missing autoloads
-- fix RET should not leave mode
-- evilify
-** ranger
-- major mode syntax coloring in preview buffer
-** semantic
-- fix echo area conflicts
-- extract stickyfunc to use it with other backends
-** spaceline
-- lines count instead of buffer size
-- ycmd status
-Show in the spaceline ycmd's status for current buffer and, more importantly, a
-colored indication about finding the file in the compilation database:
-green  -> found
-orange -> replacement file found (show file pathname when mouse hovering)
-red    -> db not found
-*** remove `windows / unix`
-- replace with `CRLF/CR` or disable completely
-- remove useless '|'
-** term, ansi-term, multi-term
-- clean up `SPC '` term buffer after exiting with `C-d`
-- fix `C-arrow` moves
-- fix `M-backspace`
-- fix zsh menucomplete covered by modeline
-- fix char-mode / line-mode keybindings
-** which-key
-- popup help instead of echo area for help docstrings
-** ycmd
-- strip flags that are not used for parsing (e.g. "-m" flags)
 
 * My spacemacs
-** completion
-*** Explore
-**** packages
-- rtags
-**** header finders
-- https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.pyi
 ** legacy
 - tty-format: display colors in log files
 
@@ -98,3 +34,53 @@ red    -> db not found
 - https://github.com/redguardtoo/evil-matchit
 - https://github.com/abo-abo/lpy - Minimal Python IDE for GNU Emacs
 - https://github.com/jojojames/smart-jump
+- https://github.com/Rip-Rip/clang_complete/blob/master/bin/cc_args.pyi - autocomplete C headers
+
+* Further future
+** compilation
+- fix files don't open on click
+- hook =Bear= to compile command (?)
+** emacs-ycmd
+- allow for languages not supported by ycmd to use the
+  =/filter_and_sort_candidates= request to get fuzzy-matching and ycmd ranking.
+  See http://micbou.github.io/ycmd/.
+** helm
+- standardize helm actions
+- adjust size to contents when popping on the side
+- helm-mini: fix truncated buffer names
+- Helm-swoop: unselect region before moving
+- follow mode to set by default with =helm-ag-use-temp-buffer= set to t
+- Helm-ag: make output look like helm-swoop (followed, grouped)
+- Helm-M-x: add show-doc action
+- Helm-swoop: option to appear on the side
+** ranger
+- major mode syntax coloring in preview buffer
+** semantic
+- fix echo area conflicts
+- extract stickyfunc to use it with other backends
+** spaceline
+*** ycmd status
+Show in the spaceline ycmd's status for current buffer and, more importantly, a
+colored indication about finding the file in the compilation database:
+green  -> found
+orange -> replacement file found (show file pathname when mouse hovering)
+red    -> db not found
+** which-key
+- popup help instead of echo area for help docstrings
+** ycmd
+- strip flags that are not used for parsing (e.g. "-m" flags)
+** Misc
+- avy-*: case sensitivity by default (?)
+- Sudo save (https://www.emacswiki.org/emacs/SudoSave)
+- Third Party Manager
+*** Improve jumping
+- center cursor when jumping around
+- remove ycmd from jump handlers
+- implement location stack
+- add hook to jump handlers
+- go-to-{next|prev}-mark
+- go to dwim
+- go to definition
+- go to declaration
+- go to references
+- try https://github.com/jojojames/smart-jump
