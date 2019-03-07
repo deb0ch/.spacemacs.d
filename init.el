@@ -656,6 +656,8 @@ before packages are loaded."
                                          company-keywords)
                                         company-files
                                         company-dabbrev)
+   scroll-margin 20
+   smooth-scroll-margin 20
    ycmd-eldoc-always-semantic-server-query-modes (quote (c-mode c++-mode objc-mode))
    ycmd-parse-conditions '(save mode-enabled)
  )
