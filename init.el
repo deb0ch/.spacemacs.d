@@ -102,12 +102,20 @@ This function should only modify configuration layer settings."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
-   '(dtrt-indent
-     graphql-mode
-     powerline
-     (spaceline :location "~/.emacs.d/private/local/spaceline/")
-     vdiff)
+   '(
+     ;; (evil-escape :location  "~/.emacs.d/private/local/evil-escape/")
+     ;; (multiple-cursors :location "~/.emacs.d/private/local/multiple-cursors.el/")
+     ;; (purpose :location "~/.emacs.d/private/local/emacs-purpose/")
+     ;; (shell-pop :location "~/.emacs.d/private/local/shell-pop-el/")
+     ;; (spaceline :location "~/.emacs.d/private/local/spaceline/")
      (vterm :location "~/.emacs.d/private/local/emacs-libvterm/")
+     ;; (winum :location "~/.emacs.d/private/local/emacs-winum/")
+     dtrt-indent
+     graphql-mode
+     magit-todos
+     powerline  ; TODO: why powerline ?
+     vdiff
+     )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
