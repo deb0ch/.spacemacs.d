@@ -1,5 +1,5 @@
 
-# sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+[ -e ~/.oh-my-zsh ] || sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 git clone https://deb0ch@github.com/deb0ch/spacemacs -b perso ~/.emacs.d
 git clone https://github.com/mirrors/emacs.git ~/emacs
 sudo apt-get -y build-dep emacs
