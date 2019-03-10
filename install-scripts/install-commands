@@ -5,10 +5,15 @@
 
 
 if [ ! $1 ]; then
-    echo "Usage: $0 <commands-list-file> [<step-number>]"
+    echo "Usage: "
+    echo "$0 <commands-list-file> <step-number>"
     echo ""
     echo "commands-list-file: a file listing the commands to run, one command per line."
     echo "step-number: line number of the command to resume at, skipping all the ones before that."
+    echo ""
+    echo "$0 <commands-list-file> list"
+    echo ""
+    echo "list all steps with their number"
     exit 1
 fi
 
@@ -36,7 +41,7 @@ run_cmd()
         printf "\nExecuting %02d: %s\n" $step_id "$1"
         eval "$1"
         if [ $? -ne 0 ]; then
-            printf "Install failed on command %02d: %s\n" $step_id "$1"
+            printf "\nInstall failed on command %02d: %s\n" $step_id "$1"
             kill -s TERM $TOP_PID
         fi
     else
@@ -56,11 +61,11 @@ if [ "$2" == "list" ]; then
 fi
 
 
-echo -e "\nNew run:" >> setup_raspbian.log
+echo -e "\nNew run:" >> $1.log
 
 while read -r line
 do
-    run_cmd "$line" 2>&1 | tee -a setup_raspbian.log
+    run_cmd "$line" 2>&1 | tee -a "$1.log"
     step_id=$((step_id + 1))
 done <<< "$commands"
 
