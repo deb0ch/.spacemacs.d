@@ -1,7 +1,6 @@
 
-sudo apt-get -y install git htop silversearcher-ag tree vim zsh
+sudo apt-get -y install curl git htop silversearcher-ag tree vim zsh
 [ -e ~/.spacemacs.d ] || git clone https://deb0ch@github.com/deb0ch/.spacemacs.d -b master ~/.spacemacs.d
-[ -e ~/.oh-my-zsh ] || sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 git clone https://deb0ch@github.com/deb0ch/spacemacs -b perso ~/.emacs.d
 git clone https://github.com/mirrors/emacs.git ~/emacs
 sudo apt-get -y build-dep emacs
