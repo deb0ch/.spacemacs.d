@@ -529,7 +529,13 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   (setq-default truncate-lines t)
 
-  )
+  (with-eval-after-load 'spaceline
+    (spaceline-define-segment workspace-list
+      "Gives a list of workspaces, akin to vim tabs"
+      (eyebrowse-mode-line-indicator))
+
+    (setq spacemacs-spaceline-additional-segments '((workspace-list :priority 100))))
+)
 
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
