@@ -39,7 +39,7 @@ run_cmd()
 {
     if (( $step_id >= $skip_to )); then
         printf "\nExecuting %02d: %s\n" $step_id "$1"
-        eval "$1"
+        bash -c "$1"
         if [ $? -ne 0 ]; then
             printf "\nInstall failed on command %02d: %s\n" $step_id "$1"
             kill -s TERM $TOP_PID
