@@ -108,6 +108,7 @@ This function should only modify configuration layer settings."
      ;; (purpose :location "~/.emacs.d/private/local/emacs-purpose/")
      ;; (shell-pop :location "~/.emacs.d/private/local/shell-pop-el/")
      ;; (spaceline :location "~/.emacs.d/private/local/spaceline/")
+     (total-lines :location "~/.emacs.d/private/local/total-lines/")
      (vterm :location "~/.emacs.d/private/local/emacs-libvterm/")
      ;; (winum :location "~/.emacs.d/private/local/emacs-winum/")
      dtrt-indent
