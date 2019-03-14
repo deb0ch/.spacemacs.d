@@ -25,3 +25,20 @@ rm -rf /tmp/source-code-pro{,.zip}
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get -y install git
+
+# Install up-to-date cmake for vterm
+sudo add-apt-repository -y ppa:george-edison55/cmake-3.x
+sudo apt-get update
+sudo apt-get -y remove cmake --purge
+sudo apt-get -y install cmake
+
+# Install emacs-libvterm <3
+sudo apt-get -y install libtool
+cd /tmp && git clone https://github.com/neovim/libvterm
+cd /tmp/libvterm && make -j4 && sudo make install
+rm -rf /tmp/libvterm
+
+cd ~/.emacs.d/private/local && git clone https://github.com/akermu/emacs-libvterm
+mkdir -p ~/.emacs.d/private/local/emacs-libvterm/build
+cd ~/.emacs.d/private/local/emacs-libvterm/build && cmake ..
+cd ~/.emacs.d/private/local/emacs-libvterm/build && make -j 4
