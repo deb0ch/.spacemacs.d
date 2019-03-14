@@ -9,7 +9,7 @@ sudo apt-get -y build-dep emacs
 sudo apt-get -y install build-essential automake texinfo libjpeg-dev libncurses5-dev libtiff5-dev libgif-dev libpng-dev libxpm-dev libgtk-3-dev libgnutls28-dev
 cd ~/emacs ; git checkout emacs-26.1.92
 cd ~/emacs ; ./autogen.sh
-cd ~/emacs ; ./configure
+cd ~/emacs ; ./configure --with-modules
 cd ~/emacs ; make -j8
 cd ~/emacs ; sudo make install
 
