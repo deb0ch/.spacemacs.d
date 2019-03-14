@@ -1,9 +1,9 @@
 
 sudo apt-get -y install curl git htop silversearcher-ag tree vim zsh
 [ -e ~/.spacemacs.d ] || git clone https://deb0ch@github.com/deb0ch/.spacemacs.d -b master ~/.spacemacs.d
+[ -e ~/.emacs.d ] || git clone https://deb0ch@github.com/deb0ch/spacemacs -b perso ~/.emacs.d
 
 # Compile Emacs
-git clone https://deb0ch@github.com/deb0ch/spacemacs -b perso ~/.emacs.d
 git clone https://github.com/mirrors/emacs.git ~/emacs
 sudo apt-get -y build-dep emacs
 sudo apt-get -y install build-essential automake texinfo libjpeg-dev libncurses5-dev libtiff5-dev libgif-dev libpng-dev libxpm-dev libgtk-3-dev libgnutls28-dev
@@ -37,7 +37,7 @@ sudo apt-get -y install libtool
 cd /tmp && git clone https://github.com/neovim/libvterm
 cd /tmp/libvterm && make -j4 && sudo make install
 rm -rf /tmp/libvterm
-
+cd ~/.emacs.d/private/local || mkdir -p ~/.emacs.d/private/local
 cd ~/.emacs.d/private/local && git clone https://github.com/akermu/emacs-libvterm
 mkdir -p ~/.emacs.d/private/local/emacs-libvterm/build
 cd ~/.emacs.d/private/local/emacs-libvterm/build && cmake ..
