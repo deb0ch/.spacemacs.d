@@ -20,3 +20,8 @@ mkdir -p ~/.fonts
 cp -v /tmp/source-code-pro/*/OTF/*.otf ~/.fonts/
 fc-cache -fv
 rm -rf /tmp/source-code-pro{,.zip}
+
+# Install up-to-date git for Magit
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get -y install git
