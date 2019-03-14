@@ -1,6 +1,8 @@
 
 sudo apt-get -y install curl git htop silversearcher-ag tree vim zsh
 [ -e ~/.spacemacs.d ] || git clone https://deb0ch@github.com/deb0ch/.spacemacs.d -b master ~/.spacemacs.d
+
+# Compile Emacs
 git clone https://deb0ch@github.com/deb0ch/spacemacs -b perso ~/.emacs.d
 git clone https://github.com/mirrors/emacs.git ~/emacs
 sudo apt-get -y build-dep emacs
@@ -10,4 +12,11 @@ cd ~/emacs ; ./autogen.sh
 cd ~/emacs ; ./configure
 cd ~/emacs ; make -j8
 cd ~/emacs ; sudo make install
-~/.spacemacs.d/install-scripts/source-code-pro.sh
+
+# Install font Source Code Pro
+cd /tmp && wget --no-verbose -O source-code-pro.zip https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.zip
+cd /tmp && unzip source-code-pro.zip -d source-code-pro
+mkdir -p ~/.fonts
+cp -v /tmp/source-code-pro/*/OTF/*.otf ~/.fonts/
+fc-cache -fv
+rm -rf /tmp/source-code-pro{,.zip}
