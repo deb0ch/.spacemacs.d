@@ -29,7 +29,7 @@ sudo apt-get update
 sudo apt-get -y install git
 
 # Install up-to-date cmake for vterm
-sudo add-apt-repository -y ppa:george-edison55/cmake-3.x
+sudo add-apt-repository -s -y ppa:george-edison55/cmake-3.x
 sudo apt-get update
 sudo apt-get -y remove cmake --purge
 sudo apt-get -y install cmake
