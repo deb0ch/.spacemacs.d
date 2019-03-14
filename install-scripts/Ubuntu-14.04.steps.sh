@@ -10,3 +10,4 @@ cd ~/emacs ; ./autogen.sh
 cd ~/emacs ; ./configure
 cd ~/emacs ; make -j8
 cd ~/emacs ; sudo make install
+~/.spacemacs.d/install-scripts/source-code-pro.sh
