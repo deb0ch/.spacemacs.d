@@ -1,4 +1,6 @@
 
+sudo apt-get update
+sudo apt-get -y upgrade
 sudo apt-get -y install curl git htop silversearcher-ag tree vim zsh
 [ -e ~/.spacemacs.d ] || git clone https://deb0ch@github.com/deb0ch/.spacemacs.d -b master ~/.spacemacs.d
 [ -e ~/.emacs.d ] || git clone https://deb0ch@github.com/deb0ch/spacemacs -b perso ~/.emacs.d
