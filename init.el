@@ -109,7 +109,6 @@ This function should only modify configuration layer settings."
      ;; (shell-pop :location "~/.emacs.d/private/local/shell-pop-el/")
      ;; (spaceline :location "~/.emacs.d/private/local/spaceline/")
      (total-lines :location "~/.emacs.d/private/local/total-lines/")
-     (vterm :location "~/.emacs.d/private/local/emacs-libvterm/")
      ;; (winum :location "~/.emacs.d/private/local/emacs-winum/")
      dtrt-indent
      graphql-mode
