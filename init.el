@@ -546,6 +546,9 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
       (eyebrowse-mode-line-indicator))
 
     (setq spacemacs-spaceline-additional-segments '((workspace-list :priority 100))))
+
+  (with-eval-after-load 'multiple-cursors
+    (define-key mc/keymap (kbd "<return>") nil))
 )
 
 (defun dotspacemacs/user-load ()
