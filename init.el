@@ -65,7 +65,9 @@ This function should only modify configuration layer settings."
      json
      ;; lsp
      markdown
-     multiple-cursors
+     (multiple-cursors :variables
+                       multiple-cursors-backend 'mc
+                       mc/cmds-to-run-once '(upcase-region))
      my-multiple-cursors
      org
      osx

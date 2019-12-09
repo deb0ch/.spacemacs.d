@@ -11,16 +11,9 @@
 
 (defconst my-multiple-cursors-packages
   '(
-    multiple-cursors
     expand-region
     )
   "The list of Lisp packages required by the my-multiple-cursors layer."
   )
-
-(defun my-multiple-cursors/init-multiple-cursors ()
-  (use-package multiple-cursors
-    :defer t
-    :commands (mc/cycle-forward
-               mc/cycle-backward)))
 
 (defun my-multiple-cursors/post-init-expand-region ())
