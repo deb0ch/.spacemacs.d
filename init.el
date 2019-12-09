@@ -34,6 +34,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     ansible
      (auto-completion :variables
                       :disabled-for markdown org erc)
      (better-defaults :variables
@@ -77,6 +78,7 @@ This function should only modify configuration layer settings."
              python-sort-imports-on-save t)
      ranger
      react
+     rust
      semantic
      (shell :variables
             shell-default-shell 'vterm
@@ -112,6 +114,7 @@ This function should only modify configuration layer settings."
      ;; (spaceline :location "~/.emacs.d/private/local/spaceline/")
      (total-lines :location "~/.emacs.d/private/local/total-lines/")
      ;; (winum :location "~/.emacs.d/private/local/emacs-winum/")
+     disable-mouse
      dtrt-indent
      graphql-mode
      magit-todos
