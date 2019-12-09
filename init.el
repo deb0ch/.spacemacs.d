@@ -571,11 +571,14 @@ before packages are loaded."
 
   ; Local non-melpa packages setup goes here
 
+
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Toggles                                                                  ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  (spacemacs/toggle-centered-point-globally-on)
+  (with-eval-after-load 'centered-cursor-mode
+    (spacemacs/toggle-centered-point-globally-on))
+
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Hooks                                                                    ;;
@@ -615,6 +618,7 @@ before packages are loaded."
     "SPC" #'avy-goto-char-2
     ":" #'evilnc-comment-operator)
 
+
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Function calls                                                           ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -631,6 +635,7 @@ before packages are loaded."
 
   ;;   (when (boundp 'winum-assign-func)
   ;;     (setq winum-assign-func #'treemacs--window-number-zero)))
+
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Variables                                                                ;;
