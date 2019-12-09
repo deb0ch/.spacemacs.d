@@ -651,6 +651,9 @@ before packages are loaded."
   (push '("\\.gql\\'"      . graphql-mode) auto-mode-alist)
   (push '("\\.launch\\'"   . xml-mode) auto-mode-alist)
 
+  (when (spacemacs/system-is-mac)
+    (setq powerline-image-apple-rgb t))
+
   (setq
    avy-case-fold-search nil
    c-basic-offset 8
@@ -680,7 +683,6 @@ before packages are loaded."
    org-support-shift-select t
    paradox-github-token (file-to-string "~/.spacemacs.d/github-token")
    paragraph-start "\f\\|[ \t]*$\\|[ \t]*[-+*] \\|[ \t]*[0-9]+[.)] "
-   powerline-image-apple-rgb t
    ranger-cleanup-eagerly t
    ranger-override-dired nil
    ranger-override-dired-mode nil
