@@ -85,14 +85,21 @@ This function should only modify configuration layer settings."
             shell-default-height 50
             shell-default-position 'bottom)
      shell-scripts
-     spacemacs-layouts
+     (spacemacs-layouts :variables
+                        spacemacs-layouts-restrict-spc-tab t
+                        spacemacs-layouts-restricted-functions
+                        '(spacemacs/window-split-double-columns
+                          spacemacs/window-split-triple-columns
+                          spacemacs/window-split-grid))
      (syntax-checking :variables
                       syntax-checking-use-original-bitmaps nil)
      tern
      themes-megapack
      (treemacs :variables
-               treemacs-use-collapsed-directories 0)
-     typescript
+               treemacs-use-collapsed-directories 0
+               treemacs-use-git-mode nil)
+     (typescript :variables
+                 typescript-linter 'eslint)
      version-control
      vim-empty-lines
      ;wakatime
