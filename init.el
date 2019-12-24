@@ -651,6 +651,7 @@ before packages are loaded."
   (push '("\\.gql\\'"      . graphql-mode      ) auto-mode-alist)
   (push '("\\.launch\\'"   . xml-mode          ) auto-mode-alist)
   (push '("\\.*rc\\'"      . shell-script-mode ) auto-mode-alist)
+  (push '("_.*"            . shell-script-mode ) auto-mode-alist)
 
   (when (spacemacs/system-is-mac)
     (setq powerline-image-apple-rgb t))
