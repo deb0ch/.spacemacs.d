@@ -644,14 +644,14 @@ before packages are loaded."
 
   (setq-default term-suppress-hard-newline t)
 
-  (push '("\\.ino\\'"      . c++-mode          ) auto-mode-alist)
-  (push '("\\.yapf\\'"     . conf-mode         ) auto-mode-alist)
-  (push '("\\.graphqls\\'" . graphql-mode      ) auto-mode-alist)
-  (push '("\\.graphql\\'"  . graphql-mode      ) auto-mode-alist)
-  (push '("\\.gql\\'"      . graphql-mode      ) auto-mode-alist)
-  (push '("\\.launch\\'"   . xml-mode          ) auto-mode-alist)
-  (push '("\\.*rc\\'"      . shell-script-mode ) auto-mode-alist)
-  (push '("_.*"            . shell-script-mode ) auto-mode-alist)
+  (push '("\\.ino\\'"        . c++-mode          ) auto-mode-alist)
+  (push '("\\.yapf\\'"       . conf-mode         ) auto-mode-alist)
+  (push '("\\.graphqls\\'"   . graphql-mode      ) auto-mode-alist)
+  (push '("\\.graphql\\'"    . graphql-mode      ) auto-mode-alist)
+  (push '("\\.gql\\'"        . graphql-mode      ) auto-mode-alist)
+  (push '("\\.launch\\'"     . xml-mode          ) auto-mode-alist)
+  (push '("\\.*rc\\'"        . shell-script-mode ) auto-mode-alist)
+  (push '("\\(/\\|\\`\\)_.*" . shell-script-mode ) auto-mode-alist)
 
   (when (spacemacs/system-is-mac)
     (setq powerline-image-apple-rgb t))
