@@ -50,6 +50,7 @@ This function should only modify configuration layer settings."
      ;chrome
      csv
      copy-as-format
+     dart
      docker
      emacs-lisp
      emoji
