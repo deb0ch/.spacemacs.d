@@ -195,8 +195,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-use-spacelpa nil
 
    ;; If non-nil then verify the signature for downloaded Spacelpa archives.
-   ;; (default nil)
-   dotspacemacs-verify-spacelpa-archives nil
+   ;; (default t)
+   dotspacemacs-verify-spacelpa-archives t
 
    ;; If non-nil then spacemacs will check for updates at startup
    ;; when the current branch is not `develop'. Note that checking for
@@ -324,7 +324,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-distinguish-gui-tab nil
 
    ;; Name of the default layout (default "Default")
-   dotspacemacs-default-layout-name "default"
+   dotspacemacs-default-layout-name "Default"
 
    ;; If non-nil the default layout name is displayed in the mode-line.
    ;; (default nil)
@@ -621,6 +621,11 @@ before packages are loaded."
   (add-hook 'c-mode-common-hook
             (lambda ()
               (c-set-offset 'case-label '+)))
+
+  (add-hook 'text-mode-hook
+            (lambda ()
+              (set-input-method 'latin-prefix)
+              (setq fill-column 100)))
 
   (with-eval-after-load 'evil-mc
     (add-hook 'prog-mode-hook 'turn-on-evil-mc-mode)
