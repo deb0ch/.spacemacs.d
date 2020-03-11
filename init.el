@@ -664,14 +664,14 @@ before packages are loaded."
 
   (setq-default term-suppress-hard-newline t)
 
-  (push '("\\.ino\\'"        . c++-mode          ) auto-mode-alist)
-  (push '("\\.yapf\\'"       . conf-mode         ) auto-mode-alist)
-  (push '("\\.graphqls\\'"   . graphql-mode      ) auto-mode-alist)
-  (push '("\\.graphql\\'"    . graphql-mode      ) auto-mode-alist)
-  (push '("\\.gql\\'"        . graphql-mode      ) auto-mode-alist)
-  (push '("\\.launch\\'"     . xml-mode          ) auto-mode-alist)
-  (push '("\\.*rc\\'"        . shell-script-mode ) auto-mode-alist)
-  (push '("\\(/\\|\\`\\)_.*" . shell-script-mode ) auto-mode-alist)
+  (add-to-list 'auto-mode-alist '("\\.ino\\'"        . c++-mode          ) 'append)
+  (add-to-list 'auto-mode-alist '("\\.yapf\\'"       . conf-mode         ) 'append)
+  (add-to-list 'auto-mode-alist '("\\.graphqls\\'"   . graphql-mode      ) 'append)
+  (add-to-list 'auto-mode-alist '("\\.graphql\\'"    . graphql-mode      ) 'append)
+  (add-to-list 'auto-mode-alist '("\\.gql\\'"        . graphql-mode      ) 'append)
+  (add-to-list 'auto-mode-alist '("\\.launch\\'"     . xml-mode          ) 'append)
+  (add-to-list 'auto-mode-alist '("\\.*rc\\'"        . shell-script-mode ) 'append)
+  (add-to-list 'auto-mode-alist '("\\(/\\|\\`\\)_.*" . shell-script-mode ) 'append)
 
   (when (spacemacs/system-is-mac)
     (setq powerline-image-apple-rgb t))
