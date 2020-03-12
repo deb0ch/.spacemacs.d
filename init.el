@@ -34,6 +34,7 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     ansi-colors
      ansible
      (auto-completion :variables
                       :disabled-for markdown org erc)
