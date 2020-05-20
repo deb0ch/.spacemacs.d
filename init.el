@@ -65,7 +65,9 @@ This function should only modify configuration layer settings."
      (javascript :variables
                  node-add-modules-path t)
      json
-     lsp
+     (lsp :variables
+          lsp-ui-doc-include-signature t
+          lsp-ui-sideline-show-symbol t)
      markdown
      (multiple-cursors :variables
                        multiple-cursors-backend 'mc
