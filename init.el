@@ -79,6 +79,7 @@ This function should only modify configuration layer settings."
      pdf
      (python :variables
              python-enable-yapf-format-on-save nil
+             python-lsp-server 'pyls
              python-sort-imports-on-save t)
      ranger
      react
