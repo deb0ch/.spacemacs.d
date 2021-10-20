@@ -679,6 +679,7 @@ before packages are loaded."
   (delete-selection-mode t)	;; Remplace le texte selectionne si on tape
   (global-hl-line-mode -1)	;; Do not highlight current line
   (global-highlight-parentheses-mode -1)
+  (global-emojify-mode t)
 
   ;; (with-eval-after-load 'winum
   ;;   (defun treemacs--window-number-zero ()
