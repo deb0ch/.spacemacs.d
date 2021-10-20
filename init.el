@@ -48,7 +48,8 @@ This function should only modify configuration layer settings."
      (colors :variables
              colors-enable-nyan-cat-progress-bar t)
      common-lisp
-     ;chrome
+     (conda :variables
+            conda-anaconda-home "~/mambaforge")
      csv
      copy-as-format
      dart
@@ -63,6 +64,7 @@ This function should only modify configuration layer settings."
            helm-position 'bottom
            helm-fuzzy 'always)
      html
+     ipython-notebook
      (javascript :variables
                  node-add-modules-path t)
      json
